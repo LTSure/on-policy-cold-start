@@ -38,14 +38,53 @@ class PolicyLoss(nn.Module):
         self,
         log_probs: torch.Tensor,
         old_log_probs: torch.Tensor,
+        
         advantages: torch.Tensor,
         action_mask: Optional[torch.Tensor] = None,
+        return_info=False,
     ) -> torch.Tensor:
         ratio = (log_probs - old_log_probs).exp()
         surr1 = ratio * advantages
         surr2 = ratio.clamp(1 - self.clip_eps, 1 + self.clip_eps) * advantages
         loss = -torch.min(surr1, surr2)
         loss = masked_mean(loss, action_mask, dim=-1).mean()
+        if return_info:
+            info = {}
+            valid_ratios = ratio[action_mask]
+            in_clip_mask = (valid_ratios >= (1 - self.clip_eps)) & (valid_ratios <= (1 + self.clip_eps))
+            num_in_clip = in_clip_mask.sum().item()
+            total_valid = valid_ratios.numel()
+            ratio_in_clip = num_in_clip / total_valid if total_valid > 0 else 0.0
+            info["ratio_in_clip"] = ratio_in_clip
+            return loss, info
+        return loss
+
+
+class ReinforceLoss(nn.Module):
+    """
+    Policy Loss for PPO
+    """
+
+    def __init__(self, clip_eps: float = 0.2) -> None:
+        super().__init__()
+        self.clip_eps = clip_eps
+
+    def forward(
+        self,
+        log_probs: torch.Tensor,
+        old_log_probs: torch.Tensor,
+        advantages: torch.Tensor,
+        action_mask: Optional[torch.Tensor] = None,
+        return_info: bool = False,
+    ) -> torch.Tensor:
+        loss = -advantages * log_probs
+        # ratio = (log_probs - old_log_probs).exp()
+        # surr1 = ratio * advantages
+        # surr2 = ratio.clamp(1 - self.clip_eps, 1 + self.clip_eps) * advantages
+        # loss = -torch.min(surr1, surr2)
+        loss = masked_mean(loss, action_mask, dim=-1).mean()
+        if return_info:
+            return loss, {"ratio_in_clip": 1.0}
         return loss
 
 
