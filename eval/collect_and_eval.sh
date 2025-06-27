@@ -162,7 +162,7 @@
 # MODEL_NAME="Llama-3.2-3B-Instruct_ppo_from_base_deepscaler_3_0606/_actor/2"
 # MODEL_NAME="Llama-3.2-3B-Instruct_ppo_from_base_deepscaler_3_0606/_actor/3"
 # MODEL_NAME="Llama-3.2-3B-Instruct_ppo_from_base_deepscaler_3_0606/_actor/4"
-MODEL_NAME="Llama-3.2-3B-Instruct_ppo_from_base_deepscaler_3_0606"
+# MODEL_NAME="Llama-3.2-3B-Instruct_ppo_from_base_deepscaler_3_0606"
 
 
 
@@ -229,21 +229,22 @@ MODEL_NAME="Llama-3.2-3B-Instruct_ppo_sft_alfworld_muti_turn——0623/_actor/3"
 # ID="lhy_test3"
 ID="lhy_test_vllm0.6.3"
 
-MODEL_PATH="/cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints"
+
+# MODEL_PATH="/cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints"
 # MODEL_PATH="/cpfs04/user/liutianshuo/rllm/scripts/deepscaler/train/checkpoints/deepscaler"
 
-# MODEL_PATH="/oss/public/user/liuts/model"
+MODEL_PATH="/oss/public/user/liuts/model"
 # MODEL_NAME="Qwen2.5_Math_1.5B"
 # MODEL_NAME="Qwen2.5_Math_7B"
-# MODEL_NAME="Llama-3.2-3B-Instruct"
+MODEL_NAME="Llama-3.2-3B-Instruct"
 
 
 DATA_DIR="./data"
 # DATA_NAME="aime24"
 # DATA_NAME="MATH-500"
-# DATA_NAME="gsm8k"
+DATA_NAME="gsm8k"
 # DATA_NAME="minerva_math"
-DATA_NAME="olympiad_bench"
+# DATA_NAME="olympiad_bench"
 SPLIT="test"
 
 # DATA_DIR="/cpfs04/user/liutianshuo/math/simpleRL-reason/eval/"
