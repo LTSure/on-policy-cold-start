@@ -3,6 +3,9 @@
 __pycache__/
 *.pyc
 *.egg-info/
+*.jsonl
+*.csv
+*.json
 
 results-0608-n=8-k=8/
 results-chat-n=32-k=8/
