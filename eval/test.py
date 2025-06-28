@@ -1425,29 +1425,91 @@ import torch
 # print("\nValid probs:\n", valid_probs)
 
 
-import json
-from collections import defaultdict
+# import json
+# from collections import defaultdict
 
-input_path = "/cpfs04/user/liutianshuo/human-eval/results/samples_Llama-3.2-3B-Instruct_ppo_sft_alfworld_muti_turn——0623/_actor/3_16.jsonl"
-output_path = "/cpfs04/user/liutianshuo/human-eval/results/samples_Llama-3.2-3B-Instruct_ppo_sft_alfworld_muti_turn——0623/_actor/3_16_merge.jsonl"
+# input_path = "/cpfs04/user/liutianshuo/human-eval/results/samples_Llama-3.2-3B-Instruct_ppo_sft_alfworld_muti_turn——0623/_actor/3_16.jsonl"
+# output_path = "/cpfs04/user/liutianshuo/human-eval/results/samples_Llama-3.2-3B-Instruct_ppo_sft_alfworld_muti_turn——0623/_actor/3_16_merge.jsonl"
 
-# 1. 收集所有 completion
-merged_data = defaultdict(list)
+# # 1. 收集所有 completion
+# merged_data = defaultdict(list)
 
-with open(input_path, "r") as f:
-    for line in f:
-        sample = json.loads(line)
-        task_id = sample["task_id"]
-        completion = sample["completion"]
-        merged_data[task_id].append(completion)
+# with open(input_path, "r") as f:
+#     for line in f:
+#         sample = json.loads(line)
+#         task_id = sample["task_id"]
+#         completion = sample["completion"]
+#         merged_data[task_id].append(completion)
 
-# 2. 写入合并后的文件
-with open(output_path, "w") as f:
-    for task_id, completions in merged_data.items():
-        merged_entry = {
-            "task_id": task_id,
-            "completion": completions  # 注意是 plural
-        }
-        f.write(json.dumps(merged_entry) + "\n")
+# # 2. 写入合并后的文件
+# with open(output_path, "w") as f:
+#     for task_id, completions in merged_data.items():
+#         merged_entry = {
+#             "task_id": task_id,
+#             "completion": completions  # 注意是 plural
+#         }
+#         f.write(json.dumps(merged_entry) + "\n")
 
-print(f"✅ 合并完成，共处理 {len(merged_data)} 个任务。输出文件：{output_path}")
+# print(f"✅ 合并完成，共处理 {len(merged_data)} 个任务。输出文件：{output_path}")
+
+
+# import json
+
+# # 输入输出路径
+# input_path = "/cpfs04/user/liutianshuo/CodeEval-Pro/dataset/MbppPlus-OriginFmt.jsonl"
+# output_path = "/cpfs04/user/liutianshuo/CodeEval-Pro/dataset/MbppPlus-OriginFmt.json"
+
+# # 逐行读取 JSONL，每行是一个字典
+# with open(input_path, "r", encoding="utf-8") as f:
+#     data = [json.loads(line) for line in f]
+
+# # 写入为标准 JSON 文件（列表形式）
+# with open(output_path, "w", encoding="utf-8") as f:
+#     json.dump(data, f, indent=2, ensure_ascii=False)
+
+# print(f"已成功将 {input_path} 转换为 {output_path}")
+
+# import json
+
+# def convert_mbpp_to_evalplus_format(input_path, output_path):
+#     with open(input_path, 'r') as f:
+#         data = json.load(f)
+
+#     new_data = []
+#     for example in data:
+#         task_id = example["task_id"]
+#         raw_problem = example["text"]
+#         raw_solution = example["code"]
+#         new_problem = raw_problem  # 如果没变异可以直接复用
+#         new_solution = raw_solution
+#         test_code = example.get("test_setup_code", "") + "\n" + "\n".join(example["test_list"])
+
+#         new_data.append({
+#             "task_id": task_id,
+#             "raw_problem": raw_problem,
+#             "raw_solution": raw_solution,
+#             "new_problem": new_problem,
+#             "new_solution": new_solution,
+#             "test_code": test_code
+#         })
+
+#     with open(output_path, 'w') as f:
+#         json.dump(new_data, f, indent=2)
+
+
+import requests
+
+url = "http://localhost:21001/register_worker"
+data = {
+    "worker_name": "test_worker",
+    "check_heart_beat": False,
+    "worker_status": {"model_names": ["dummy"], "speed": 1.0, "queue_length": 0},
+}
+
+try:
+    response = requests.post(url, json=data, timeout=5)
+    print(response.status_code)
+    print(response.text)
+except Exception as e:
+    print("Error:", e)
+

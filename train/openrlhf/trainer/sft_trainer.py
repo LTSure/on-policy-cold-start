@@ -4,6 +4,7 @@ from abc import ABC
 
 import torch
 from torch import nn
+import torch.nn.functional as F
 from torch.optim import Optimizer
 from tqdm import tqdm
 from transformers.trainer import get_scheduler
@@ -161,6 +162,153 @@ class SFTTrainer(ABC):
                     else:
                         for label, source_len in zip(labels, prompts_id_lens):
                             label[:source_len] = self.loss_fn.IGNORE_INDEX
+
+
+#############################################3
+
+                def log_probs_from_logits(logits: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
+                    log_probs = F.log_softmax(logits, dim=-1)  
+                    return log_probs.gather(dim=-1, index=labels.unsqueeze(-1)).squeeze(-1)  
+
+                def get_response_log_probs(output_logits: torch.Tensor, labels: torch.Tensor, ignore_index: int = -100) -> torch.Tensor:
+                    shift_logits = output_logits[:, :-1, :].contiguous()  # 形状 (batch_size, seq_len-1, vocab_size)
+                    shift_labels = labels[:, 1:].contiguous()             # 形状 (batch_size, seq_len-1)
+                    
+                    all_log_probs = log_probs_from_logits(shift_logits, shift_labels)  
+                    
+                    valid_mask = (shift_labels != self.loss_fn.IGNORE_INDEX)  # 布尔掩码，True表示response位置
+                    
+                    response_log_probs = all_log_probs[valid_mask]  # 仅保留有效位置的log prob
+                    
+                    return response_log_probs
+
+                response_log_probs = get_response_log_probs(output.logits, labels)
+
+                def analyze_response_probs(response_log_probs: torch.Tensor, bins: torch.Tensor) -> tuple:
+ 
+
+                    probs = torch.exp(response_log_probs)  # log概率转实际概率
+                    counts = torch.histc(probs, bins=bins, min=bins[0], max=bins[-1])
+                    return probs, counts
+
+                def plot_prob_distribution(bins: torch.Tensor, counts: torch.Tensor):
+                    """
+                    绘制概率区间分布的柱状图
+                    
+                    Args:
+                        bins: 区间边界（如[0.0, 0.1, ..., 1.0]）
+                        counts: 各区间的样本数量（与bins长度-1一致）
+                    """
+                    plt.figure(figsize=(10, 6))
+                    plt.bar(
+                        x=bins[:-1],  # 区间左边界
+                        height=counts,
+                        width=0.1,  # 区间宽度（0.1）
+                        align='edge',  # 对齐左边界
+                        edgecolor='black',
+                        alpha=0.7
+                    )
+                    plt.xticks(bins)  # 显示所有区间边界
+                    plt.xlabel('Probability Interval [left, right)')
+                    plt.ylabel('Number of Tokens')
+                    plt.title('Distribution of Response Token Probabilities')
+                    plt.grid(axis='y', linestyle='--', alpha=0.7)
+                    plt.show()
+
+                def compute_group_gradient_norms(
+                    model: torch.nn.Module,
+                    inputs: torch.Tensor,
+                    labels: torch.Tensor,
+                    group_masks: list,
+                    ignore_index: int = -100
+                ) -> list:
+                    """
+                    计算各分组样本的梯度范数
+                    
+                    Args:
+                        model: 训练中的模型
+                        inputs: 模型输入（如token_ids）
+                        labels: 原始标签（已标记IGNORE_INDEX）
+                        group_masks: 各区间的mask列表（与shift_labels同形状）
+                        ignore_index: 忽略的标签值
+                    
+                    Returns:
+                        grad_norms: 各区间的梯度范数列表
+                    """
+                    model.train()  # 确保模型处于训练模式
+                    grad_norms = []
+                    
+                    # 模型前向传播（获取logits）
+                    output = model(inputs)
+                    output_logits = output.logits  # 假设模型输出包含logits
+                    
+                    # 计算shift_logits和shift_labels（与损失计算对齐）
+                    shift_logits = output_logits[:, :-1, :].contiguous()
+                    shift_labels = labels[:, 1:].contiguous()
+                    
+                    # 遍历每个分组mask
+                    for mask in group_masks:
+                        if not mask.any():  # 跳过无样本的分组
+                            grad_norms.append(0.0)
+                            continue
+                        
+                        # 提取分组内的logits和labels
+                        group_logits = shift_logits[mask]
+                        group_labels = shift_labels[mask]
+                        
+                        # 计算分组损失（与原loss_fn逻辑一致）
+                        # 原loss_fn是CrossEntropyLoss(ignore_index=IGNORE_INDEX)
+                        # 分组损失需排除IGNORE_INDEX（但mask已过滤，无需额外处理）
+                        group_loss = F.cross_entropy(
+                            group_logits,  # 形状 (num_group_tokens, vocab_size)
+                            group_labels,  # 形状 (num_group_tokens,)
+                            ignore_index=ignore_index
+                        )
+                        
+                        # 反向传播并计算梯度范数
+                        model.zero_grad()
+                        group_loss.backward(retain_graph=True)  # 保留计算图以便后续分组
+                        
+                        # 计算参数梯度的L2范数
+                        grad_norm = 0.0
+                        for param in model.parameters():
+                            if param.grad is not None:
+                                grad_norm += param.grad.data.norm(2).item() ** 2
+                        grad_norm = grad_norm ** 0.5
+                        grad_norms.append(grad_norm)
+                    
+                    return grad_norms
+
+                # 定义区间边界（0.1间隔，共10个区间）
+                bins = torch.linspace(0.0, 1.0, 11)  # [0.0, 0.1, ..., 1.0]
+
+                # -------------------- 步骤1：分析概率分布并生成mask --------------------
+                # 需传入valid_mask（在get_response_log_probs中生成）
+                shift_labels = labels[:, 1:].contiguous()  # 与get_response_log_probs中的shift_labels一致
+                valid_mask = (shift_labels != ignore_index)  # 有效位置掩码
+
+                probs, counts, group_masks = analyze_response_probs(response_log_probs, bins)
+
+                # -------------------- 步骤2：绘制柱状图 --------------------
+                plot_prob_distribution(bins, counts)
+
+                # -------------------- 步骤3：计算分组梯度范数（假设model是当前模型） --------------------
+                # 模拟模型输入（假设inputs是token_ids）
+                inputs = torch.randint(0, vocab_size, (batch_size, seq_len))  # 示例输入
+
+                # 计算各分组的梯度范数
+                grad_norms = compute_group_gradient_norms(
+                    model=model,  # 替换为实际模型
+                    inputs=inputs,
+                    labels=labels,
+                    group_masks=group_masks,
+                    ignore_index=ignore_index
+                )
+
+                # 打印结果
+                for i, (bin_start, bin_end) in enumerate(zip(bins[:-1], bins[1:])):
+                    print(f"Bin [{bin_start:.1f}, {bin_end:.1f}): Gradient Norm = {grad_norms[i]:.4f}")
+########################################################3
 
                 gpt_loss = self.loss_fn(output.logits, labels)
                 loss = gpt_loss + aux_loss * self.args.aux_loss_coef

@@ -1917,6 +1917,412 @@ class NaiveExperienceMakerORM800K(ABC):
         return returns
     
     
+
+class NaiveExperienceMakerSFT(ABC):
+    """
+    Naive experience maker.
+    """
+
+    def __init__(
+        self,
+        actor: Actor,
+        critic: nn.Module,
+        reward_model: nn.Module,
+        initial_model: Actor,
+        tokenizer,
+        prompt_max_len: int,
+        kl_controller,
+        strategy=None,
+        remote_rm_url: str = None,
+        reward_fn=None,
+        without_ppo=False,
+    ) -> None:
+        super().__init__()
+        self.actor = actor
+        self.critic = critic
+        self.reward_model = reward_model
+        self.remote_rm_url = remote_rm_url
+        self.initial_model = initial_model
+        self.tokenizer = tokenizer
+        self.prompt_max_len = prompt_max_len
+        self.kl_ctl = kl_controller
+        self.strategy = strategy
+        self.reward_fn = reward_fn
+        self.perf_stats = None
+        self.advantage_estimator = strategy.args.advantage_estimator
+        self.without_ppo = without_ppo
+
+    # tokenizer
+    def tokenize_fn(self, texts, max_length, padding=True, device=None, padding_side="left"):
+        raw_padding_side = self.tokenizer.padding_side
+        self.tokenizer.padding_side = padding_side
+        if not padding:
+            # when padding is False, return tokenized texts as list
+            batch = self.tokenizer(
+                texts,
+                add_special_tokens=False,
+                max_length=max_length,
+                truncation=True,
+            )
+            self.tokenizer.padding_side = raw_padding_side
+            return batch
+        batch = self.tokenizer(
+            texts,
+            return_tensors="pt",
+            add_special_tokens=False,
+            max_length=max_length,
+            padding=True,
+            truncation=True,
+        )
+        self.tokenizer.padding_side = raw_padding_side
+
+        return {k: v.to(device) for k, v in batch.items()}
+
+    @torch.no_grad()
+    def make_experience_list(self, all_prompts: Union[str, List[str]], all_answers:  Union[str, List[str]], all_responses:  Union[str, List[str]], **generate_kwargs) -> List[Experience]:
+        """
+        Make a list of experience with the micro_rollout_batch_size.
+
+        This method will first calculate the response sequences and rewards for the given prompts.
+        Then, if we need certain processing for the rewards or do certain filtering, we can process the rollout as a whole.
+        After that, we will calculate the advantages and returns for each experience.
+        """
+
+        #print("generate_kwargs", generate_kwargs)
+        args = self.strategy.args
+        experiences = []
+        
+        for idx, samples in enumerate(tqdm(
+            self.generate_samples(all_prompts, all_answers, all_responses, **generate_kwargs),
+            desc=f"make_experience",
+            disable=not self.strategy.is_rank_0(),
+            )):
+            # 获取对应的 answer
+            #answers = all_answers[idx]
+            #print("samples", samples.)
+            experience = self.make_experience(samples, **generate_kwargs)
+            experiences.append(experience)
+
+        experiences = self.process_experiences(experiences)
+
+        # calculate return and advantages
+        for experience in experiences:
+            num_actions = experience.info["num_actions"]
+            reward = compute_reward(
+                experience.info["reward"],
+                self.kl_ctl.value,
+                experience.kl,
+                action_mask=experience.action_mask,
+                num_actions=num_actions,
+                reward_clip_range=args.reward_clip_range,
+            )
+
+            if self.advantage_estimator == "gae":
+                experience.advantages, experience.returns = self.get_advantages_and_returns(
+                    experience.values,
+                    reward,
+                    experience.action_mask,
+                    generate_kwargs["gamma"],
+                    generate_kwargs["lambd"],
+                )
+            elif self.advantage_estimator == "reinforce":
+                experience.returns = self.get_cumulative_returns(
+                    reward,
+                    experience.action_mask,
+                    generate_kwargs["gamma"],
+                )
+                experience.advantages = deepcopy(experience.returns)
+            else:
+                raise Exception(f"Unkown advantage_estimator {self.advantage_estimator}")
+
+            # calculate the return info.
+            if not getattr(self, "packing_samples", False):
+                return_sums = reward.sum(dim=-1)
+            else:
+                return_sums = torch.tensor(
+                    [each_reward.sum() for each_reward in reward], device=torch.cuda.current_device()
+                )
+            experience.info["return"] = return_sums
+            # remove unnecessary info
+            experience.kl = None
+            del experience.info["num_actions"]
+        return experiences
+
+    @torch.no_grad()
+    def generate_samples(self, all_prompts: List[str], all_answers: List[str], all_responses: List[str], **generate_kwargs) -> List[Samples]:
+        """
+        Generate samples and return in batches.
+        """
+        assert not getattr(self, "packing_samples", False)
+        args = self.strategy.args
+        self.actor.eval()
+        # sample multiple response
+        all_prompts = sum([[prompt] * args.n_samples_per_prompt for prompt in all_prompts], [])
+        all_answers = sum([[answer] * args.n_samples_per_prompt for answer in all_answers], [])
+        if all_responses is not None:
+            all_responses = sum([[response] * args.n_samples_per_prompt for response in all_responses], [])
+        samples_list = []
+        #self.strategy.print(f"generate samples!!!")
+        for i in range(0, len(all_prompts), args.micro_rollout_batch_size):
+            prompts = all_prompts[i : i + args.micro_rollout_batch_size]
+            answers = all_answers[i : i + args.micro_rollout_batch_size]
+
+            if all_responses is not None:
+                responses = all_responses[i : i + args.micro_rollout_batch_size]
+
+                inputs = self.tokenize_fn(prompts, self.prompt_max_len, device="cuda")
+                outputs = self.tokenize_fn(responses, generate_kwargs.get("max_new_tokens"), device="cuda", padding_side="right")
+
+                sequences = torch.cat([inputs["input_ids"], outputs["input_ids"]], dim=-1)
+
+                eos_token_id = generate_kwargs.get("eos_token_id")
+                pad_token_id = generate_kwargs.get("pad_token_id")
+
+                sequences, attention_mask, action_mask = self.actor.process_sequences(sequences, inputs["input_ids"].size(1), eos_token_id, pad_token_id)
+            else:
+                inputs = self.tokenize_fn(prompts, self.prompt_max_len, device="cuda")
+                #self.strategy.print(f"generating!!!")
+                sequences, attention_mask, action_mask = self.actor.generate(**inputs, **generate_kwargs)
+
+            #self.strategy.print(f"generating!!!", sequences)
+            samples = SamplesBOX(
+                sequences=sequences,
+                attention_mask=attention_mask,
+                action_mask=action_mask,
+                num_actions=action_mask.size(1),
+                packed_seq_lens=None,
+                response_length=action_mask.float().sum(dim=-1),
+                total_length=attention_mask.float().sum(dim=-1),
+                answers=answers,
+            )
+            samples_list.append(samples)
+
+            #print("sequences", samples.sequences)
+            
+            #print("attention_mask", samples.attention_mask)
+
+
+        return samples_list
+
+    @torch.no_grad()
+    def make_experience(self, samples: Samples, **generate_kwargs) -> Experience:
+        """
+        Turn samples into experience by calculating logprobs, values, rewards, and kl divergence.
+        """
+        self.actor.eval()
+        self.initial_model.eval()
+        if self.reward_model is not None:
+            self.reward_model.eval()
+        if self.critic is not None:
+            self.critic.eval()
+
+        # extract values from samples
+        sequences = samples.sequences
+        attention_mask = samples.attention_mask
+        action_mask = samples.action_mask
+        num_actions = samples.num_actions
+        answers = samples.answers
+
+        # log probs
+        #print("sequences.shape", sequences.shape)
+        #print("sequences", sequences[0])
+        #print("num_actions", num_actions)
+        #print("attention_mask", attention_mask.shape)
+        #print("action_mask", action_mask.shape)
+        if self.without_ppo:
+            action_log_probs = torch.ones_like(action_mask).float()
+        else:
+            action_log_probs = self.actor(sequences, num_actions, attention_mask)
+
+        
+        #print("action_log_probs", action_log_probs.shape)
+
+        # init log probs
+        # base_action_log_probs = self.initial_model(sequences, num_actions, attention_mask)
+        base_action_log_probs = action_log_probs.clone()
+
+        # values
+        if self.critic is not None:
+            value = self.critic(sequences, num_actions, attention_mask)
+        else:
+            value = None
+
+        # rewards
+        if self.remote_rm_url is not None:
+            # remote RM
+            queries = self.tokenizer.batch_decode(sequences.cpu(), skip_special_tokens=False)
+            r = remote_rm_fn(self.remote_rm_url, queries=queries).to(device=action_log_probs.device)
+        else:
+            queries = self.tokenizer.batch_decode(sequences.cpu(), skip_special_tokens=False)
+            # pattern = r"The final answer is: \\boxed\{(.*?)\}"
+            # missing_answer_indices = [
+            # i for i, query in enumerate(queries) if not re.search(pattern, query, re.DOTALL)
+            # ]
+            #print("answers", answers[:5])
+            #print("attention_mask_cpu", attention_mask_cpu[:1])
+            
+            processed_queries = []
+            box_match_list = []
+            #math_equal_list = []
+            for query, answer in zip(queries, answers):
+                # query, box_match = preprocess_box_response_for_qwen_prompt(query, answer)
+                processed_queries.append(query)
+                # box_match_list.append(box_match)
+                box_match_list.append(1.0)
+                
+            queries = processed_queries
+            
+            r = torch.tensor(box_match_list, device=attention_mask.device)
+                        
+        kl = compute_approx_kl(
+            action_log_probs,
+            base_action_log_probs,
+            action_mask=action_mask,
+            use_kl_estimator_k3=self.strategy.args.use_kl_estimator_k3,
+        )
+
+        # reward with 1
+        # print(r, "old\n\n\n\n")
+        r = torch.ones_like(r)
+        # print(r, "new\n\n\n\n")
+        #print(masked_mean(kl, action_mask, dim=-1).shape)
+        info = {
+            "kl": masked_mean(kl, action_mask, dim=-1),
+            "reward": r,
+            "response_length": samples.response_length,
+            "total_length": samples.total_length,
+            "num_actions": num_actions,
+            #"reward_indexs": reward_indexs,
+            #"step_rewards": step_scores,
+        }
+        # reset model state
+        self.actor.train()
+        if self.critic is not None:
+            self.critic.train()
+            
+        #print("pre_pre_action_mask", action_mask.size(1))
+
+        return Experience(
+            sequences,
+            action_log_probs,
+            value,
+            None,
+            None,
+            attention_mask,
+            action_mask,
+            info,
+            kl,
+        )
+
+    @torch.no_grad()
+    def process_experiences(self, experiences: List[Experience]) -> List[Experience]:
+        # TODO: add more methods to process experiences
+        return experiences
+
+    @torch.no_grad()
+    def get_advantages_and_returns(
+        self,
+        values: torch.Tensor,
+        rewards: torch.Tensor,
+        action_mask: torch.Tensor,
+        gamma: float,
+        lambd: float,
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        """Function that computes advantages and returns from rewards and values.
+        Calculated as in the original PPO paper: https://arxiv.org/abs/1707.06347
+        Note that rewards may include a KL divergence loss term.
+
+        Advantages looks like this:
+        Adv1 =  R1 + γ * λ * R2     + γ^2 * λ^2 * R3       + ...
+              - V1 + γ * (1 - λ) V2 + γ^2 * λ * (1 - λ) V3 + ...
+
+        Returns looks like this:
+        Ret1 =  R1 + γ * λ * R2     + γ^2 * λ^2 * R3       + ...
+                   + γ * (1 - λ) V2 + γ^2 * λ * (1 - λ) V3 + ...
+
+        Input:
+        - values: Tensor of shape (batch_size, response_size)
+        - rewards: Tensor of shape (batch_size, response_size)
+
+        Output:
+        - advantages: Tensor of shape (batch_size, response_size)
+        - returns: Tensor of shape (batch_size, response_size)
+        """
+        if isinstance(values, list):
+            # packing samples
+            # TODO: this is slow...
+            advantages = []
+            returns = []
+            for v, r in zip(values, rewards):
+                adv, ret = self.get_advantages_and_returns(v.unsqueeze(0), r.unsqueeze(0), action_mask, gamma, lambd)
+                advantages.append(adv.squeeze(0))
+                returns.append(ret.squeeze(0))
+            return advantages, returns
+
+        lastgaelam = 0
+        advantages_reversed = []
+        response_length = rewards.size(1)
+
+        # Mask invalid responses
+        if action_mask is not None:
+            values = action_mask * values
+            rewards = action_mask * rewards
+
+        for t in reversed(range(response_length)):
+            nextvalues = values[:, t + 1] if t < response_length - 1 else 0.0
+            delta = rewards[:, t] + gamma * nextvalues - values[:, t]
+            lastgaelam = delta + gamma * lambd * lastgaelam
+            advantages_reversed.append(lastgaelam)
+        advantages = torch.stack(advantages_reversed[::-1], dim=1)
+        returns = advantages + values
+        return advantages.detach(), returns
+
+    @torch.no_grad()
+    def get_cumulative_returns(
+        self,
+        rewards: torch.Tensor,
+        action_mask: torch.Tensor,
+        gamma: float,
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        Function that computes advantages and returns from rewards using REINFORCE.
+        REINFORCE uses cumulative returns without the GAE (Generalized Advantage Estimation).
+
+        Input:
+        - rewards: Tensor of shape (batch_size, response_size)
+        - action_mask: Tensor of shape (batch_size, response_size), binary mask
+        - gamma: discount factor
+
+        Output:
+        - returns: Tensor of shape (batch_size, response_size)
+        """
+
+        if isinstance(rewards, list):
+            # packing samples
+            # TODO: this is slow...
+            returns = []
+            for r in rewards:
+                ret = self.get_cumulative_returns(r.unsqueeze(0), action_mask, gamma)
+                returns.append(ret.squeeze(0))
+            return returns
+
+        response_length = rewards.size(1)
+        returns = torch.zeros_like(rewards)
+        cumulative_return = torch.zeros(rewards.size(0), device=rewards.device)
+
+        # Mask invalid responses if action_mask is provided
+        if action_mask is not None:
+            rewards = action_mask * rewards
+
+        # Calculate returns by accumulating discounted rewards
+        for t in reversed(range(response_length)):
+            cumulative_return = rewards[:, t] + gamma * cumulative_return
+            returns[:, t] = cumulative_return
+
+        return returns
+
+
+
 class NaiveExperienceMakerPRM800K(ABC):
     """
     Naive experience maker.
