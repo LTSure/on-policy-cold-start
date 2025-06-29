@@ -10,5 +10,7 @@ from .loss import (
     PRMLoss,
     ValueLoss,
     VanillaKTOLoss,
+    PolicyLoss, 
+    ReinforceLoss
 )
 from .model import get_llm_for_sequence_regression

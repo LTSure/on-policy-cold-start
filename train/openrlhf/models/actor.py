@@ -37,9 +37,16 @@ class Actor(nn.Module):
         ds_config=None,
         device_map=None,
         packing_samples=False,
+        # [lhy add]
+        use_muti_turn=False,
+        # [lhy add]
         **kwargs,
     ) -> None:
         super().__init__()
+
+        # [lhy add]
+        self.use_muti_turn = use_muti_turn
+        # [lhy add]
 
         if isinstance(pretrain_or_model, str):
             attn_implementation = "flash_attention_2" if use_flash_attention_2 else "eager"
@@ -204,7 +211,12 @@ class Actor(nn.Module):
         log_probs = log_probs_from_logits(output["logits"][:, :-1, :], sequences[:, 1:])
 
         if not self.packing_samples:
-            action_log_probs = log_probs[:, -num_actions:]
+            # [lhy add]
+            if not self.use_muti_turn:
+                action_log_probs = log_probs[:, -num_actions:]
+            else:
+                action_log_probs = log_probs
+            # [lhy add]
         else:
             assert isinstance(num_actions, list) and len(num_actions) == len(packed_seq_lens)
             action_log_probs = []

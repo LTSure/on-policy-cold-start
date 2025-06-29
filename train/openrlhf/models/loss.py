@@ -30,7 +30,7 @@ class PolicyLoss(nn.Module):
     Policy Loss for PPO
     """
 
-    def __init__(self, clip_eps: float = 0.2) -> None:
+    def __init__(self, clip_eps: float = 0.2, use_decay: bool = False) -> None:
         super().__init__()
         self.clip_eps = clip_eps
 
@@ -48,15 +48,78 @@ class PolicyLoss(nn.Module):
         surr2 = ratio.clamp(1 - self.clip_eps, 1 + self.clip_eps) * advantages
         loss = -torch.min(surr1, surr2)
         loss = masked_mean(loss, action_mask, dim=-1).mean()
+
+
         if return_info:
             info = {}
             valid_ratios = ratio[action_mask]
+            valid_log_probs = log_probs[action_mask]
             in_clip_mask = (valid_ratios >= (1 - self.clip_eps)) & (valid_ratios <= (1 + self.clip_eps))
             num_in_clip = in_clip_mask.sum().item()
             total_valid = valid_ratios.numel()
-            ratio_in_clip = num_in_clip / total_valid if total_valid > 0 else 0.0
-            info["ratio_in_clip"] = ratio_in_clip
+            info["ratio_in_clip"] = num_in_clip / total_valid if total_valid > 0 else 0.0
+            info["clip_eps"] = self.clip_eps
+
+            over_clip_mask = valid_ratios > (1 + self.clip_eps)
+            under_clip_mask = valid_ratios < (1 - self.clip_eps)
+            num_over_clip = over_clip_mask.sum().item()
+            num_under_clip = under_clip_mask.sum().item()
+            info["clip_over_ratio"] = num_over_clip / total_valid if total_valid > 0 else 0.0
+            info["clip_under_ratio"] = num_under_clip / total_valid if total_valid > 0 else 0.0
+
+            valid_probs = torch.exp(valid_log_probs)
+            bins = torch.arange(0.0, 1.01, 0.1, device=valid_probs.device)
+            bin_indices = torch.bucketize(valid_probs, bins, right=False) - 1
+            logprob_all_bins = {}
+            for i in range(len(bins) - 1):
+                left = bins[i].item()
+                right = bins[i + 1].item()
+                count = (bin_indices == i).sum().item()
+                logprob_all_bins[f"{left:.1f}-{right:.1f}"] = count
+            count = (bin_indices >= len(bins) - 1).sum().item()
+            if count > 0:
+                logprob_all_bins[f">= {bins[-1].item():.1f}"] = count
+            info["all_logprob_bins"] = logprob_all_bins
+
+            if num_over_clip > 0:
+                over_log_probs = valid_log_probs[over_clip_mask]
+                over_probs = torch.exp(over_log_probs)
+                over_bin_indices = torch.bucketize(over_probs, bins, right=False) - 1
+                over_logprob_bins = {}
+                for i in range(len(bins) - 1):
+                    left = bins[i].item()
+                    right = bins[i + 1].item()
+                    count = (over_bin_indices == i).sum().item()
+                    over_logprob_bins[f"{left:.1f}-{right:.1f}"] = count
+                count = (over_bin_indices >= len(bins) - 1).sum().item()
+                if count > 0:
+                    over_logprob_bins[f">= {bins[-1].item():.1f}"] = count
+                info["over_logprob_bins"] = over_logprob_bins
+            else:
+                info["over_logprob_bins"] = {}
+            
+
+            if num_under_clip > 0:
+                under_log_probs = valid_log_probs[under_clip_mask]
+                under_probs = torch.exp(under_log_probs)
+                under_bin_indices = torch.bucketize(under_probs, bins, right=False) - 1
+                under_logprob_bins = {}
+                for i in range(len(bins) - 1):
+                    left = bins[i].item()
+                    right = bins[i + 1].item()
+                    count = (under_bin_indices == i).sum().item()
+                    under_logprob_bins[f"{left:.1f}-{right:.1f}"] = count
+                count = (under_bin_indices >= len(bins) - 1).sum().item()
+                if count > 0:
+                    under_logprob_bins[f">= {bins[-1].item():.1f}"] = count
+                info["under_logprob_bins"] = under_logprob_bins
+            else:
+                info["under_logprob_bins"] = {}
+
+
             return loss, info
+
+
         return loss
 
 

@@ -9,3 +9,4 @@ from .ppo_trainer_orm import PPOTrainerORM
 from .ppo_trainer_orm800k import PPOTrainerORM800K
 from .ppo_trainer_prm800k import PPOTrainerPRM800K
 from .ppo_trainer_prm800k_box import PPOTrainerPRM800K_BOX
+from .sft_ppo_trainer import SFTPPOTrainer

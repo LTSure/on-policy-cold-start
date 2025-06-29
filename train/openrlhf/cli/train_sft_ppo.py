@@ -10,7 +10,7 @@ import torch
 from transformers.trainer import get_scheduler
 
 from openrlhf.datasets import PromptDataset, SFTDataset
-from openrlhf.models import Actor,Actor_MT, get_llm_for_sequence_regression
+from openrlhf.models import Actor, get_llm_for_sequence_regression
 from openrlhf.trainer import SFTPPOTrainer
 from openrlhf.utils import blending_datasets, get_strategy, get_tokenizer
 import random

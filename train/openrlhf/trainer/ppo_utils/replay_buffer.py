@@ -114,7 +114,11 @@ def make_experience_batch(items: List[BufferItem], packing_samples=False) -> Exp
     return Experience(**kwargs)
 
 
-def remove_padding_in_sequences(items):
+def remove_padding_in_sequences(items, use_muti_turn=False):
+    # [lhy add]
+    if use_muti_turn:
+        return items
+    # [lhy add]
     for item in items:
         seq, act_log_prob, value, ret, adv, att_mask, act_mask = (
             item.sequences,
@@ -160,7 +164,7 @@ class NaiveReplayBuffer(ABC):
     """
 
     def __init__(
-        self, sample_batch_size: int, limit: int = 0, cpu_offload: bool = True, packing_samples: bool = False
+        self, sample_batch_size: int, limit: int = 0, cpu_offload: bool = True, packing_samples: bool = False, use_muti_turn: bool = False
     ) -> None:
         super().__init__()
         self.sample_batch_size = sample_batch_size
@@ -170,6 +174,7 @@ class NaiveReplayBuffer(ABC):
         self.packing_samples = packing_samples
         self.target_device = torch.device(f"cuda:{torch.cuda.current_device()}")
         self.items: List[BufferItem] = []
+        self.use_muti_turn = use_muti_turn
 
     @torch.no_grad()
     def append(self, experience: Experience) -> None:
@@ -178,7 +183,7 @@ class NaiveReplayBuffer(ABC):
         items = split_experience_batch(experience)
         # the packed samples comes with no padding
         if not self.packing_samples:
-            items = remove_padding_in_sequences(items)
+            items = remove_padding_in_sequences(items, self.use_muti_turn)
         self.items.extend(items)
         if self.limit > 0:
             samples_to_remove = len(self.items) - self.limit
