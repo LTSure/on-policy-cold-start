@@ -4,7 +4,7 @@ import logging
 import numpy as np
 
 import torch
-from alfworld.agents.modules.layers import EncoderBlock, DecoderBlock, NoisyLinear, CQAttention, compute_mask, PointerSoftmax, masked_softmax, SelfAttention, BoxFeaturesFC
+from agent_system.environments.env_package.alfworld.alfworld.agents.modules.layers import EncoderBlock, DecoderBlock, NoisyLinear, CQAttention, compute_mask, PointerSoftmax, masked_softmax, SelfAttention, BoxFeaturesFC
 BERT_EMBEDDING_SIZE = 768
 
 logger = logging.getLogger(__name__)

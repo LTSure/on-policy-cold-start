@@ -5,7 +5,7 @@ import torch
 import os
 import sys
 
-from alfworld.agents.utils.misc import extract_admissible_commands
+from agent_system.environments.env_package.alfworld.alfworld.agents.utils.misc import extract_admissible_commands
 
 
 def evaluate_dagger(env, agent, num_games, debug=False):

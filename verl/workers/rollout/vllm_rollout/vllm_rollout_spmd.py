@@ -194,6 +194,11 @@ class vLLMRollout(BaseRollout):
 
         self.pad_token_id = tokenizer.pad_token_id
 
+        # [lhy add 0720]
+        self.tokenizer = tokenizer
+        # [lhy add 0720]
+
+
     @contextmanager
     def update_sampling_params(self, **kwargs):
         # update sampling params
@@ -297,6 +302,7 @@ class vLLMRollout(BaseRollout):
 
             response = []
             rollout_log_probs = []
+
             for output in outputs:
                 for sample_id in range(len(output.outputs)):
                     response_ids = output.outputs[sample_id].token_ids
@@ -306,7 +312,9 @@ class vLLMRollout(BaseRollout):
                         curr_log_prob.append(logprob[response_ids[i]].logprob)
                     rollout_log_probs.append(curr_log_prob)
 
+
             response = pad_2d_list_to_length(response, self.pad_token_id, max_length=self.config.response_length).to(idx.device)
+
             rollout_log_probs = pad_2d_list_to_length(rollout_log_probs, -1, max_length=self.config.response_length).to(idx.device)
             rollout_log_probs = rollout_log_probs.to(torch.float32)
 

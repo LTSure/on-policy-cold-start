@@ -155,8 +155,8 @@ class Worker(WorkerHelper):
             os.environ["LOCAL_RANK"] = os.environ.get("RAY_LOCAL_RANK")
         ###
 
-        world_size = int(os.environ["WORLD_SIZE"])
-        rank = int(os.environ["RANK"])
+        world_size = int(os.getenv("WORLD_SIZE", "-1"))
+        rank = int(os.getenv("RANK", "-1"))
         self._rank = rank
         self._world_size = world_size
 

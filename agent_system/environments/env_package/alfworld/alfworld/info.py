@@ -3,7 +3,7 @@ __version__ = '0.4.2'
 import os
 from os.path import join as pjoin
 
-from alfworld.utils import mkdirs
+from agent_system.environments.env_package.alfworld.alfworld.utils import mkdirs
 
 
 _default_alfworld_cache = os.path.expanduser("~/.cache/alfworld")

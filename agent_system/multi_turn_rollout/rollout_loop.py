@@ -70,11 +70,16 @@ class TrajectoryCollector:
         else:
             print(f"Warning: No text observation found!")
 
-        
-        chat = np.array([{
-            "content": obs_content,
-            "role": "user",
-        }])
+        # -----------------------[lhy replace]--------------------------
+
+        # chat = np.array([{
+        #     "content": obs_content,
+        #     "role": "user",
+        # }])
+
+        chat = np.array(self.multi_turn[item])
+
+        # -----------------------[lhy replace]--------------------------
         
         # Apply chat template
         prompt_with_chat_template = self.tokenizer.apply_chat_template(
@@ -82,7 +87,13 @@ class TrajectoryCollector:
             add_generation_prompt=True,
             tokenize=False
         )
-        
+
+        # -----------------------[lhy add]--------------------------
+        with open("/cpfs04/user/liutianshuo/verl-agent/test_log_0713.txt", "a", encoding="utf-8") as f:
+            f.write(f'{item}[responses]: '+prompt_with_chat_template + "\n\n") 
+            f.write('===========================================================================================\n\n')
+        # -----------------------[lhy add]--------------------------
+
         # Initialize return dict
         row_dict = {}
         
@@ -119,8 +130,6 @@ class TrajectoryCollector:
                                                                             left_pad=True,
                                                                             truncation=self.config.data.truncation,)
         
-        
-
         if is_multi_modal:
 
             position_ids = get_rope_index(
@@ -259,6 +268,7 @@ class TrajectoryCollector:
             gen_batch: DataProto, 
             actor_rollout_wg, 
             envs: EnvironmentManagerBase,
+            is_train: bool=False
             ) -> DataProto:
         """
         Collects trajectories through parallel agent-environment agent_loop.
@@ -275,16 +285,20 @@ class TrajectoryCollector:
             traj_uid (np.ndarray): Trajectory unique identifiers
         """
         # Initial observations from the environment
+        print("enter env start reset part")
         obs, infos = envs.reset()
+        print("quit the start part")
 
         # Initialize trajectory collection
         lenght_obs = len(obs['text']) if obs['text'] is not None else len(obs['image'])
         if len(gen_batch.batch) != lenght_obs and self.config.env.rollout.n > 0:
+            print("enter the repeat part")
             gen_batch = gen_batch.repeat(repeat_times=self.config.env.rollout.n, interleave=True)
         assert len(gen_batch.batch) == lenght_obs, f"gen_batch size {len(gen_batch.batch)} does not match obs size {lenght_obs}"
 
         batch_size = len(gen_batch.batch['input_ids'])
         batch_output = None
+
         
         if self.config.env.rollout.n > 0: # env grouping
             uid_batch = []
@@ -303,7 +317,44 @@ class TrajectoryCollector:
         episode_lengths = np.zeros(batch_size, dtype=np.int32)
         episode_rewards = np.zeros(batch_size, dtype=np.float32)
         # Trajectory collection loop
+
+        # [lhy add]
+        self.multi_turn = []
+        for item in range(batch_size):
+            obs_texts = obs.get('text', None)
+            obs_text = obs_texts[item] if obs_texts is not None else None
+
+            lines = obs_text.strip().split('\n')
+            room_description = None
+            goal = None
+
+            for line in lines:
+                if line.startswith("You are in the middle of a room."):
+                    room_description = line.strip()
+                elif line.startswith("Your task is to:"):
+                    goal = line.split("Your task is to:")[1].strip()
+
+            self.multi_turn.append([
+                {   'role': 'system', 
+                    'content': "Your are an expert in the ALFRED Embodied Environment."
+                },
+                {
+                    "role": "user",
+                    "content": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. task {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+                },
+                {
+                    "role": "assistant",
+                    "content": "OK"
+                },
+                {
+                    "role": "user",
+                    "content": f"{room_description}Your task is to: {goal}"
+                }
+            ])
+        # [lhy add]
+
         for _step in range(self.config.env.max_steps):
+            # print("enter the collection loop")
             active_masks = np.logical_not(is_done)
 
             batch = self.preprocess_batch(gen_batch=gen_batch, obs=obs)
@@ -328,13 +379,37 @@ class TrajectoryCollector:
             batch.non_tensor_batch['uid'] = uid_batch
             batch.non_tensor_batch['traj_uid'] = traj_uid
 
+            # breakpoint()
+
+            # [lhy add]  
             batch = batch.union(batch_output)
-            
             text_actions = self.tokenizer.batch_decode(batch.batch['responses'], skip_special_tokens=True)
+            # [lhy add]
+            
             
             next_obs, rewards, dones, infos = envs.step(text_actions)
 
-            
+
+            # [lhy add]
+            if is_train:
+                with open("/cpfs04/user/liutianshuo/verl-agent/test_log_0711.txt", "a", encoding="utf-8") as f:
+                    for it in range(batch_size):
+                        f.write(f'{it}[responses]'+text_actions[it] + "\n\n") 
+                        f.write('===========================================================================================\n\n')
+            else:
+                with open("/cpfs04/user/liutianshuo/verl-agent/test_log_0711_valid.txt", "a", encoding="utf-8") as f:
+                    for it in range(batch_size):
+                        f.write(f'{it}[responses]'+text_actions[it] + "\n\n") 
+                        f.write('===========================================================================================\n\n')  
+            # [lhy add]
+
+            # breakpoint()
+            # [lhy add]
+            for item in range(batch_size):
+                if (batch.batch["responses"][item][-10:] == self.tokenizer.pad_token_id).all():
+                    self.multi_turn[item] += [{"role": "assistant", "content": text_actions[item]}, {"role": "user", "content":  next_obs['anchor'][item]}]
+            # [lhy add]
+
             if len(rewards.shape) == 2:
                 rewards = rewards.squeeze(1)
             if len(dones.shape) == 2:
@@ -464,8 +539,10 @@ class TrajectoryCollector:
             DataProto: Final collected trajectory data with metadata.
         """
         # Initial observations from the environment
+        
         if self.config.algorithm.filter_groups.enable and is_train:
             # Dynamic Sampling (for DAPO and Dynamic GiGPO)
+            print("enter the filletr group turn loop")
             total_batch_list, total_episode_rewards, total_episode_lengths, total_success, total_traj_uid = \
                 self.dynamic_multi_turn_loop(
                 gen_batch=gen_batch,
@@ -474,17 +551,20 @@ class TrajectoryCollector:
             )
         else:
             # Vanilla Sampling   
+            
+            print("enter the vanilla turn loop")
             total_batch_list, total_episode_rewards, total_episode_lengths, total_success, total_traj_uid = \
                 self.vanilla_multi_turn_loop(
                 gen_batch=gen_batch,
                 actor_rollout_wg=actor_rollout_wg,
                 envs=envs,
+                is_train=is_train
             )
         assert len(total_batch_list) == len(total_episode_rewards)
         assert len(total_batch_list) == len(total_episode_lengths)
         assert len(total_batch_list) == len(total_traj_uid)
         
-
+        print("&&&&&&&&&&&&&&&gather rollout data")
         # Create trajectory data
         gen_batch_output: DataProto = self.gather_rollout_data(
             total_batch_list=total_batch_list,

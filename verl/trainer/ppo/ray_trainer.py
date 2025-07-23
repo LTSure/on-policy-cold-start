@@ -36,6 +36,7 @@ from codetiming import Timer
 from omegaconf import OmegaConf, open_dict
 from torch.utils.data import Dataset, Sampler
 from torchdata.stateful_dataloader import StatefulDataLoader
+import sys
 from tqdm import tqdm
 
 from verl import DataProto
@@ -1000,6 +1001,10 @@ class RayPPOTrainer:
         # load checkpoint before doing anything
         self._load_checkpoint()
 
+        if self.config.trainer.get("save_only", False):
+            self._save_checkpoint()
+            return
+            
         # perform validation before training
         # currently, we only support validation using the reward_function.
         if self.val_reward_fn is not None and self.config.trainer.get("val_before_train", True):
@@ -1011,12 +1016,19 @@ class RayPPOTrainer:
                 return
 
         # add tqdm
-        progress_bar = tqdm(total=self.total_training_steps, initial=self.global_steps, desc="Training Progress")
-
+        progress_bar = tqdm(
+            total=self.total_training_steps,
+            initial=self.global_steps,
+            desc="Training Progress",
+            file=sys.stdout,
+            disable=False
+        )
+        
         # we start from step 1
         self.global_steps += 1
         last_val_metrics = None
 
+        # breakpoint()
         for epoch in range(self.config.trainer.total_epochs):
             for batch_dict in self.train_dataloader:
                 metrics = {}
@@ -1050,6 +1062,9 @@ class RayPPOTrainer:
                         #     self.async_rollout_manager.sleep()
 
                         ################ agent-environment loop ###############
+                        with open("/cpfs04/user/liutianshuo/verl-agent/test_log_0711.txt", "a", encoding="utf-8") as f:
+                            f.write("*******************************************global step: {}********************************".format(self.global_steps)) 
+            
                         gen_batch_output = self.traj_collector.multi_turn_loop(
                                                                 gen_batch=gen_batch,
                                                                 actor_rollout_wg=self.actor_rollout_wg,
@@ -1266,6 +1281,7 @@ class RayPPOTrainer:
                 logger.log(data=metrics, step=self.global_steps)
 
                 progress_bar.update(1)
+                print("successfully update one step *************************")
                 self.global_steps += 1
                 if is_last_step:
                     pprint(f"Final validation metrics: {last_val_metrics}")

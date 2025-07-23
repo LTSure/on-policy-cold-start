@@ -9,11 +9,11 @@ from threading import Thread
 import random
 
 import alfworld.agents
-from alfworld.agents.utils.misc import get_templated_task_desc
-from alfworld.env.thor_env import ThorEnv
-from alfworld.agents.expert import HandCodedThorAgent, HandCodedAgentTimeout
-from alfworld.agents.detector.mrcnn import load_pretrained_model
-from alfworld.agents.controller import OracleAgent, OracleAStarAgent, MaskRCNNAgent, MaskRCNNAStarAgent
+from agent_system.environments.env_package.alfworld.alfworld.agents.utils.misc import get_templated_task_desc
+from agent_system.environments.env_package.alfworld.alfworld.env.thor_env import ThorEnv
+from agent_system.environments.env_package.alfworld.alfworld.agents.expert import HandCodedThorAgent, HandCodedAgentTimeout
+from agent_system.environments.env_package.alfworld.alfworld.agents.detector.mrcnn import load_pretrained_model
+from agent_system.environments.env_package.alfworld.alfworld.agents.controller import OracleAgent, OracleAStarAgent, MaskRCNNAgent, MaskRCNNAStarAgent
 
 
 TASK_TYPES = {1: "pick_and_place_simple",

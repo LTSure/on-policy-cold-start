@@ -61,6 +61,7 @@ class AlfworldWorker:
         obs, infos = self.env.reset()
         infos['observation_text'] = obs
         return obs, infos
+
     
     def getobs(self):
         """Get current observation image"""
@@ -76,9 +77,11 @@ class AlfworldEnvs(gym.Env):
         if not ray.is_initialized():
             ray.init()
             
-        eval_dataset = env_kwargs.get('eval_dataset', 'eval_in_distribution')
+        eval_dataset = env_kwargs.get('eval_dataset', 'eval_out_of_distribution')
         config = load_config_file(alf_config_path)
         env_type = config['env']['type']
+
+
         base_env = get_environment(env_type)(config, train_eval='train' if is_train else eval_dataset)
         self.multi_modal = (env_type == 'AlfredThorEnv')
         self.num_processes = env_num * group_n
@@ -132,6 +135,7 @@ class AlfworldEnvs(gym.Env):
         """
         Send the reset command to all workers at once and collect initial obs/info from each environment.
         """
+        print("this is the envs reset !!!")
         text_obs_list = []
         image_obs_list = []
         info_list = []
@@ -139,14 +143,21 @@ class AlfworldEnvs(gym.Env):
         # Send reset commands to all workers
         futures = []
         for worker in self.workers:
+            # print("this is the workers", self.workers)
             future = worker.reset.remote()
             futures.append(future)
 
         # Collect results
+        # print("ray get futures")
         results = ray.get(futures)
+        # print("successfully ray get futures")
+
         for i, (obs, info) in enumerate(results):
+            # print("this is the result", i)
             for k in info.keys():
                 info[k] = info[k][0] 
+                # print("k in info result is", k)
+
             text_obs_list.append(obs[0])
             self.prev_admissible_commands[i] = info['admissible_commands']
             info_list.append(info)

@@ -32,9 +32,17 @@ def main(config):
 def run_ppo(config) -> None:
     if not ray.is_initialized():
         # this is for local ray cluster
+
+        if config.ray_init.ray_debug:
+            runtime_env={"env_vars": {"RAY_DEBUG_POST_MORTEM": "1", "TOKENIZERS_PARALLELISM": "true", "NCCL_DEBUG": "WARN", "VLLM_LOGGING_LEVEL": "WARN", "VLLM_ALLOW_RUNTIME_LORA_UPDATING": "true"}}
+        else:
+            runtime_env={"env_vars": {"TOKENIZERS_PARALLELISM": "true", "NCCL_DEBUG": "WARN", "VLLM_LOGGING_LEVEL": "WARN", "VLLM_ALLOW_RUNTIME_LORA_UPDATING": "true"}}
+
         ray.init(
-            runtime_env={"env_vars": {"TOKENIZERS_PARALLELISM": "true", "NCCL_DEBUG": "WARN", "VLLM_LOGGING_LEVEL": "WARN", "VLLM_ALLOW_RUNTIME_LORA_UPDATING": "true"}},
-            num_cpus=config.ray_init.num_cpus,
+            # local_mode=True,
+            runtime_env=runtime_env,
+
+            num_cpus=config.ray_init.num_cpus
         )
 
     runner = TaskRunner.remote()
@@ -174,6 +182,8 @@ class TaskRunner:
             envs=envs,
             val_envs=val_envs,
         )
+
+        # breakpoint()
         trainer.init_workers()
         trainer.fit()
 

@@ -6,7 +6,7 @@ ENGINE=${1:-vllm}
 export VLLM_ATTENTION_BACKEND=XFORMERS
 
 train_data_size=8
-val_data_size=8
+val_data_size=128
 group_size=8
 N_GPUS_PER_NODE=8
 
@@ -36,6 +36,7 @@ python3 -m examples.data_preprocess.prepare \
     --train_data_size $train_data_size \
     --val_data_size $val_data_size
 
+
 CHECKPOINT_CONTENTS="['model','hf_model','optimizer','extra']"
 
 python3 -m verl.trainer.main_ppo \
@@ -44,7 +45,7 @@ python3 -m verl.trainer.main_ppo \
     data.val_files=$HOME/data/verl-agent/text/test.parquet \
     data.train_batch_size=$train_data_size \
     data.val_batch_size=$val_data_size \
-    data.max_prompt_length=2048 \
+    data.max_prompt_length=8192 \
     data.max_response_length=256 \
     data.filter_overlong_prompts=True \
     data.truncation='error' \
@@ -58,12 +59,13 @@ python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.actor.kl_loss_coef=0.01 \
     actor_rollout_ref.actor.kl_loss_type=low_var_kl \
     actor_rollout_ref.model.enable_gradient_checkpointing=True \
-    actor_rollout_ref.actor.fsdp_config.param_offload=True \
+    actor_rollout_ref.actor.fsdp_config.param_offload=False \
     actor_rollout_ref.actor.fsdp_config.optimizer_offload=False \
     actor_rollout_ref.rollout.log_prob_micro_batch_size_per_gpu=1 \
-    actor_rollout_ref.rollout.tensor_model_parallel_size=4 \
+    actor_rollout_ref.rollout.tensor_model_parallel_size=1 \
+    actor_rollout_ref.actor.checkpoint.contents=${CHECKPOINT_CONTENTS} \
     actor_rollout_ref.rollout.name=$ENGINE \
-    actor_rollout_ref.rollout.gpu_memory_utilization=0.85 \
+    actor_rollout_ref.rollout.gpu_memory_utilization=0.9 \
     actor_rollout_ref.rollout.enable_chunked_prefill=False \
     actor_rollout_ref.rollout.enforce_eager=False \
     actor_rollout_ref.rollout.free_cache_engine=False \

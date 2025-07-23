@@ -9,8 +9,8 @@ import textworld
 import textworld.agents
 import textworld.gym
 
-from alfworld.agents.utils.misc import Demangler, add_task_to_grammar
-from alfworld.agents.expert import HandCodedTWAgent, HandCodedAgentTimeout
+from agent_system.environments.env_package.alfworld.alfworld.agents.utils.misc import Demangler, add_task_to_grammar
+from agent_system.environments.env_package.alfworld.alfworld.agents.expert import HandCodedTWAgent, HandCodedAgentTimeout
 
 
 TASK_TYPES = {1: "pick_and_place_simple",
@@ -272,7 +272,7 @@ class AlfredTWEnv(object):
 
         env_id = textworld.gym.register_games(self.game_files, request_infos,
                                               batch_size=batch_size,
-                                              asynchronous=True,
+                                              asynchronous=False,
                                               max_episode_steps=max_nb_steps_per_episode,
                                               wrappers=wrappers)
         # Launch Gym environment.

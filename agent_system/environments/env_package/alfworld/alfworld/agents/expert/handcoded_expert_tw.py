@@ -1,7 +1,7 @@
 import os
 import sys
 
-from alfworld.agents.expert.handcoded_expert import HandCodedAgent, PickAndPlaceSimplePolicy, PickTwoObjAndPlacePolicy, LookAtObjInLightPolicy, PickHeatThenPlaceInRecepPolicy, PickCoolThenPlaceInRecepPolicy, PickCleanThenPlaceInRecepPolicy
+from agent_system.environments.env_package.alfworld.alfworld.agents.expert.handcoded_expert import HandCodedAgent, PickAndPlaceSimplePolicy, PickTwoObjAndPlacePolicy, LookAtObjInLightPolicy, PickHeatThenPlaceInRecepPolicy, PickCoolThenPlaceInRecepPolicy, PickCleanThenPlaceInRecepPolicy
 
 class PickAndPlaceSimpleTWPolicy(PickAndPlaceSimplePolicy):
 

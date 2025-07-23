@@ -43,8 +43,29 @@ class AlfWorldEnvironmentManager(EnvironmentManagerBase):
         full_text_obs = self.build_text_obs(text_obs, self.envs.get_admissible_commands, init=True)
         return {'text': full_text_obs, 'image': image_obs, 'anchor': text_obs}, infos
     
+    # [lhy add]
+    def transfer_actions(self, text_actions: List[str]) -> List[str]:
+        copy_y = text_actions.copy()
+        actions = []
+        for text in copy_y:
+            action = text.strip()
+            if "Action:" in action:
+                for line in action.split('\n'):
+                    if "Action:" in line:
+                        action = line.split("Action:", 1)[1].strip(" \t\n\"'")
+                        break
+            actions.append(action)
+        return actions
+    # [lhy add]
+    
     def step(self, text_actions: List[str]):
-        actions, valids = self.projection_f(text_actions, self.envs.get_admissible_commands)
+        # [lhy replace]
+        raw_text_actions = text_actions.copy()
+        actions, valids = self.projection_f(raw_text_actions, self.envs.get_admissible_commands)
+        actions = self.transfer_actions(text_actions)
+        # [lhy replace]
+
+
         text_obs, image_obs, rewards, dones, infos = self.envs.step(actions)
         self.memory.store({'text_obs': self.pre_text_obs, 'action': actions})
         self.pre_text_obs = text_obs
@@ -535,7 +556,7 @@ def make_envs(config):
             raise ValueError(f"Unsupported environment: {config.env.env_name}")
 
         env_kwargs = {
-            'eval_dataset': 'eval_in_distribution', # 'eval_in_distribution' or 'eval_out_of_distribution'
+            'eval_dataset': 'eval_out_of_distribution', # 'eval_in_distribution' or 'eval_out_of_distribution'
         }
         _envs = build_alfworld_envs(alf_config_path, config.env.seed, config.data.train_batch_size, group_n, is_train=True, env_kwargs=env_kwargs)
         _val_envs = build_alfworld_envs(alf_config_path, config.env.seed + 1000, config.data.val_batch_size, 1, is_train=False, env_kwargs=env_kwargs)

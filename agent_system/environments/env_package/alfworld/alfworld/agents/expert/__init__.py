@@ -1,3 +1,3 @@
-from alfworld.agents.expert.handcoded_expert import HandCodedAgentTimeout, HandCodedAgentFailed
-from alfworld.agents.expert.handcoded_expert_tw import HandCodedTWAgent
-from alfworld.agents.expert.handcoded_expert_thor import HandCodedThorAgent
+from agent_system.environments.env_package.alfworld.alfworld.agents.expert.handcoded_expert import HandCodedAgentTimeout, HandCodedAgentFailed
+from agent_system.environments.env_package.alfworld.alfworld.agents.expert.handcoded_expert_tw import HandCodedTWAgent
+from agent_system.environments.env_package.alfworld.alfworld.agents.expert.handcoded_expert_thor import HandCodedThorAgent
