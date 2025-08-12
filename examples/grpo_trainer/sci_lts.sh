@@ -6,7 +6,7 @@ export system_prompt='You are a helpful agent that interacts with the virtual sc
 
 
 start_port=8000
-model_path='/cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints/Qwen2.5-7B-instruct_sft_sciworld_0728_1/_actor/3'
+model_path='/cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints/Qwen2.5-7B-instruct_ppo_sft_sciworld_0728_1/_actor/3'
 
 ray start --head
 python -m verl.trainer.main_ppo_sci \
@@ -47,13 +47,13 @@ python -m verl.trainer.main_ppo_sci \
     trainer.balance_batch=False \
     trainer.logger=[console,wandb] \
     trainer.project_name=verl_grpo_demo_alf_debug \
-    trainer.experiment_name=qwen2_7b_sci \
+    trainer.experiment_name=qwen2_7b_alf \
     trainer.n_gpus_per_node=8 \
     trainer.nnodes=1 \
     trainer.save_freq=20 \
     trainer.test_freq=10 \
     trainer.total_epochs=150 \
-    trainer.resume_mode=auto \
     +trainer.log_dir="$LOG_DIR" \
-    trainer.default_local_dir="$CKPT_DIR"
+    trainer.default_local_dir="$CKPT_DIR" \
+    trainer.save_only=True
     "$@"

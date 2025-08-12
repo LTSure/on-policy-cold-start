@@ -65,8 +65,23 @@ def extract_action(text):
     else:
         return ""
 
-class SciRollout(BaseRollout):
+# [lhy add]
+def extract_raw_text_and_action(text):
+    pattern = r'Action:\s*(.*?)(?:\n|$)'
+    match = re.search(pattern, text)
+    if match:
+        end_pos = match.end(1)  
+        # raw_text = text[:end_pos] 
+        # return raw_text.strip(), match.group(1).strip()
+        raw_text = text
+        return raw_text, match.group(1).strip()
+    else:
+        raw_text = text
+        return raw_text, ""
+# [lhy add]
 
+
+class SciRollout(BaseRollout):
     def __init__(self, model_path: str, config: DictConfig, tokenizer, model_hf_config, server_url, **kwargs):
         """A vLLM rollout. It requires the module is supported by the vllm.
 
@@ -141,7 +156,7 @@ class SciRollout(BaseRollout):
         kwargs = dict(
             n=1,
             logprobs=0,  # can be set to 0 and let actor to recompute
-            max_tokens=1024,
+            max_tokens=128,
         )
 
         # # we may detokenize the result all together later
@@ -187,12 +202,14 @@ class SciRollout(BaseRollout):
         max_waiting_time = 100000
         while True:
             try:
-                res = requests.get(self.server_url + "/health")
+                res = requests.get(self.server_url + "/health", proxies={"http": None, "https": None})
                 if res.status_code == 200:
                     return True
             except:
                 assert repeat_time < max_waiting_time, f"server is not ready in {str(max_waiting_time)} s, please check the server status."
                 repeat_time += 1
+                import logging
+                import time
                 logging.info(f"server is not ready, wait for {str(repeat_time * 5)} s")
                 time.sleep(repeat_time * 5)
 
@@ -202,10 +219,9 @@ class SciRollout(BaseRollout):
             observation_str = ["You arrive at shelf 1. On the shelf 1, you see a candle 2, and a soapbar 1."] * len(task)
             task_str = ["put soapbar into shelf"] * len(task)
         else:
-            res = requests.post(self.server_url + "/reset", json={'task': task, 'var': var, 'simplificationStr': self.easy}) 
+            res = requests.post(self.server_url + "/reset", json={'task': task, 'var': var, 'simplificationStr': self.easy}, proxies={"http": None, "https": None}) 
             obs = res.json()['observations']
             tasks_des = res.json()['tasks']
-
         return obs, tasks_des
 
     def fake_step(self, batch_steps, **kwargs):
@@ -215,7 +231,7 @@ class SciRollout(BaseRollout):
             res['scores'] = [0] * len(batch_steps)
             res['dones'] = [0] * len(batch_steps)
         else:
-            res = requests.post(self.server_url + "/step", json={'actions': batch_steps})
+            res = requests.post(self.server_url + "/step", json={'actions': batch_steps},proxies={"http": None, "https": None})
             res = res.json()
  
         return res['observations'], res['scores'], res['dones']
@@ -230,28 +246,39 @@ class SciRollout(BaseRollout):
         # print(outputs)
         # breakpoint()
         batch_action = []
+        batch_raw_text = []
         for i, state in enumerate(states):
             if state["skip_flag"] == True:
+                batch_raw_text.append("")
                 batch_action.append("")
                 continue
             
             text = self.inference_engine.get_tokenizer().decode(outputs[i].outputs[0].token_ids, skip_special_tokens=True)
-            state["messages"].append({
-                "role": "assistant", 
-                "content": text
-            })
-            batch_action.append(extract_action(text))
+            
+            # [lhy replace]
+            # state["messages"].append({"role": "assistant",  "content": text})
+            # batch_action.append(extract_action(text))
+
+            raw_text, action = extract_raw_text_and_action(text)
+            batch_raw_text.append(raw_text)
+            batch_action.append(action)
+            # [lhy replace]
+
             # Track prompt_tokens to later slice out the completion part
             if state["prompt_tokens"] == -1:
                 state["prompt_tokens"] = len(outputs[i].prompt_token_ids)
         
-        return states, batch_action, outputs
+        # [lhy replace]
+        # return states, batch_action, outputs
+        return states, batch_action, outputs, batch_raw_text
+        # [lhy replace]
 
     @torch.no_grad()
     def generate_sequences(self, prompts: DataProto, **kwargs) -> DataProto:
         # breakpoint()
         # TODO: only for debug
         # self.debug = 1
+
         self.max_steps = prompts.meta_info['max_steps']
         self.max_length = prompts.meta_info['max_length']
         self.easy = prompts.meta_info['easy']
@@ -311,21 +338,60 @@ class SciRollout(BaseRollout):
             # system_prompt = self.get_system_prompt(system_info)
             system_prompt = system_prompt
 
+            # [lhy replace]
+            # states = [{
+            #     "messages": [
+            #             {
+            #                 "content": system_prompt,
+            #                 "role": "system"
+            #             },
+            #             {
+            #                 "content": f"{tasks_des[i]}\n\nObservation:{system_info[i]}",
+            #                 "role": "user"
+            #             }
+            #     ], 
+            #     "completed": False, 
+            #     "skip_flag": False,
+            #     "prompt_tokens": -1
+            # } for i in range(len(task))]
+
+
+            tasks_des_new = [tasks_des[i].replace("Task Description:\n", "") for i in range(len(tasks_des))]
             states = [{
                 "messages": [
-                        {
-                            "content": system_prompt,
-                            "role": "system"
-                        },
-                        {
-                            "content": f"{tasks_des[i]}\n\nObservation:{system_info[i]}",
-                            "role": "user"
-                        }
+                    {   
+                        'role': 'system', 
+                        'content': "You are a helpful agent that interacts with the virtual science school environment to solve the given task. "
+                    },
+                    {
+                        "role": "user",
+                        "content": "You are an agent for science world. Every round I will give you an observation, you have to respond an action based on the observation to finish the given task. Here are the actions you may take: [{\"action\": \"open/close OBJ\", \"description\": \"open/close a container\"}, {\"action\": \"de/activate OBJ\", \"description\": \"activate/deactivate a device\"}, {\"action\": \"connect OBJ to OBJ\", \"description\": \"connect electrical components\"}, {\"action\": \"disconnect OBJ\", \"description\": \"disconnect electrical components\"}, {\"action\": \"use OBJ [on OBJ]\", \"description\": \"use a device/item\"}, {\"action\": \"look around\", \"description\": \"describe the current room\"}, {\"action\": \"look at OBJ\", \"description\": \"describe an object in detail\"}, {\"action\": \"look in OBJ\", \"description\": \"describe a container's contents\"}, {\"action\": \"read OBJ\", \"description\": \"read a note or book\"}, {\"action\": \"move OBJ to OBJ\", \"description\": \"move an object to a container\"}, {\"action\": \"pick up OBJ\", \"description\": \"move an object to the inventory\"}, {\"action\": \"put down OBJ\", \"description\": \"drop an inventory item\"}, {\"action\": \"pour OBJ into OBJ\", \"description\": \"pour a liquid into a container\"}, {\"action\": \"dunk OBJ into OBJ\", \"description\": \"dunk a container into a liquid\"}, {\"action\": \"mix OBJ\", \"description\": \"chemically mix a container\"}, {\"action\": \"go to LOC\", \"description\": \"move to a new location\"}, {\"action\": \"eat OBJ\", \"description\": \"eat a food\"}, {\"action\": \"flush OBJ\", \"description\": \"flush a toilet\"}, {\"action\": \"focus on OBJ\", \"description\": \"signal intent on a task object\"}, {\"action\": \"wait\", \"description\": \"take no action for 10 iterations\"}, {\"action\": \"wait1\", \"description\": \"take no action for 1 iteration\"}, {\"action\": \"task\", \"description\": \"describe current task\"}, {\"action\": \"inventory\", \"description\": \"list your inventory\"}]\nYour response should use the following format:\nThought:\nyour thoughts.\n\nAction:\nyour next action"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "OK. I'll follow your instructions and try my best to solve the task."
+                    },
+                    {
+                        "role": "user",
+                        "content": f"{tasks_des_new[i]}\n{system_info[i]}"
+                    }
                 ], 
                 "completed": False, 
                 "skip_flag": False,
                 "prompt_tokens": -1
             } for i in range(len(task))]
+            # [lhy replace]
+
+            # [lhy add]
+            import os
+            log_dir = "/cpfs04/user/liutianshuo/Embodied-Planner-R1/log/"
+            os.makedirs(log_dir, exist_ok=True)
+            for i, state in enumerate(states):
+                with open(f"/cpfs04/user/liutianshuo/Embodied-Planner-R1/log/task_{i}_dialogue.txt", "a", encoding="utf-8") as f:
+                    f.write(f"\n=== new globel  start ===\n")
+                    f.write("\n\n")
+            # [lhy add]
+            
 
             # breakpoint()
             completion_mask = [[] for _ in states]
@@ -337,11 +403,22 @@ class SciRollout(BaseRollout):
             max_steps = copy.deepcopy(self.max_steps) 
             while any([s['skip_flag'] != True for s in states]) and max_steps > 0:
                 max_steps -= 1
-                states, batch_action, outputs = self._generate(states, self.inference_engine, self.sampling_params)
+
+                # [lhy replace]
+                # states, batch_action, outputs = self._generate(states, self.inference_engine, self.sampling_params)
+                states, batch_action, outputs, batch_raw_text = self._generate(states, self.inference_engine, self.sampling_params)
+                # [lhy replace]
+
+
                 # breakpoint()
                 batch_obs, batch_scores, batch_done = self.fake_step(batch_action)
 
                 for i, state in enumerate(states):
+                    # [lhy add]
+                    # if "No known action matches that input" in batch_obs[i]:
+                        # batch_raw_text[i]=batch_raw_text[i][:min(200,len(batch_raw_text[i]))]
+                        # continue
+                    # [lhy add]
                     
                     if states[i]["skip_flag"] == True:
                         continue
@@ -356,10 +433,23 @@ class SciRollout(BaseRollout):
                         states[i]["completed"] = True
                         # batch_obs[i] = batch_obs[i] + '\nscores: ' + str(batch_scores[i])
                     
-                    states[i]["messages"].append({
-                        "role": "tool",
-                        "content": "Observation:" + batch_obs[i]
-                    })
+                    # [lhy replace]
+
+                    # states[i]["messages"].append({
+                    #     "role": "tool",
+                    #     "content": "Observation:" + batch_obs[i]
+                    # })
+
+                    states[i]["messages"].append({"role": "assistant",  "content": batch_raw_text[i]})
+                    states[i]["messages"].append({"role": "user", "content": batch_obs[i]})
+
+                    messages_text = "\n".join([f"{m['role']}: {m['content']}" for m in states[i]["messages"]])
+                    with open(f"/cpfs04/user/liutianshuo/Embodied-Planner-R1/log/task_{i}_dialogue.txt", "a", encoding="utf-8") as f:
+                        f.write(f"\n=== Step Update ===\n")
+                        f.write(messages_text)
+                        f.write("\n\n")
+                    # [lhy replace]
+
                 
                     prompt_token_ids = outputs[i].prompt_token_ids
                     token_ids = outputs[i].outputs[0].token_ids
@@ -376,6 +466,16 @@ class SciRollout(BaseRollout):
 
                     if len(prompt_token_ids) + len(token_ids) > self.max_length:
                         states[i]["skip_flag"] = True
+            
+            
+            # [lhy add]
+            for i, state in enumerate(states):
+                with open(f"/cpfs04/user/liutianshuo/Embodied-Planner-R1/log/task_{i}_dialogue.txt", "a", encoding="utf-8") as f:
+                    f.write(f"\n=== new globel  end ===\n")
+                    f.write("\n\n")
+            # [lhy add]
+            
+            
             
             for i, state in enumerate(states):
 

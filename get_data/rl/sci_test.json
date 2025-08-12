@@ -1,0 +1,846 @@
+[
+    {
+        "task": "boil",
+        "var": 21
+    },
+    {
+        "task": "boil",
+        "var": 22
+    },
+    {
+        "task": "boil",
+        "var": 23
+    },
+    {
+        "task": "boil",
+        "var": 24
+    },
+    {
+        "task": "boil",
+        "var": 25
+    },
+    {
+        "task": "boil",
+        "var": 26
+    },
+    {
+        "task": "boil",
+        "var": 27
+    },
+    {
+        "task": "boil",
+        "var": 28
+    },
+    {
+        "task": "boil",
+        "var": 29
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 21
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 22
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 23
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 24
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 25
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 26
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 27
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 28
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 29
+    },
+    {
+        "task": "freeze",
+        "var": 21
+    },
+    {
+        "task": "freeze",
+        "var": 22
+    },
+    {
+        "task": "freeze",
+        "var": 23
+    },
+    {
+        "task": "freeze",
+        "var": 24
+    },
+    {
+        "task": "freeze",
+        "var": 25
+    },
+    {
+        "task": "freeze",
+        "var": 26
+    },
+    {
+        "task": "freeze",
+        "var": 27
+    },
+    {
+        "task": "freeze",
+        "var": 28
+    },
+    {
+        "task": "freeze",
+        "var": 29
+    },
+    {
+        "task": "melt",
+        "var": 21
+    },
+    {
+        "task": "melt",
+        "var": 22
+    },
+    {
+        "task": "melt",
+        "var": 23
+    },
+    {
+        "task": "melt",
+        "var": 24
+    },
+    {
+        "task": "melt",
+        "var": 25
+    },
+    {
+        "task": "melt",
+        "var": 26
+    },
+    {
+        "task": "melt",
+        "var": 27
+    },
+    {
+        "task": "melt",
+        "var": 28
+    },
+    {
+        "task": "melt",
+        "var": 29
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 327
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 328
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 329
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 330
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 331
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 332
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 333
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 334
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 335
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 336
+    },
+    {
+        "task": "use-thermometer",
+        "var": 405
+    },
+    {
+        "task": "use-thermometer",
+        "var": 406
+    },
+    {
+        "task": "use-thermometer",
+        "var": 407
+    },
+    {
+        "task": "use-thermometer",
+        "var": 408
+    },
+    {
+        "task": "use-thermometer",
+        "var": 409
+    },
+    {
+        "task": "use-thermometer",
+        "var": 410
+    },
+    {
+        "task": "use-thermometer",
+        "var": 411
+    },
+    {
+        "task": "use-thermometer",
+        "var": 412
+    },
+    {
+        "task": "use-thermometer",
+        "var": 413
+    },
+    {
+        "task": "use-thermometer",
+        "var": 414
+    },
+    {
+        "task": "power-component",
+        "var": 15
+    },
+    {
+        "task": "power-component",
+        "var": 16
+    },
+    {
+        "task": "power-component",
+        "var": 17
+    },
+    {
+        "task": "power-component",
+        "var": 18
+    },
+    {
+        "task": "power-component",
+        "var": 19
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 15
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 16
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 17
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 18
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 19
+    },
+    {
+        "task": "test-conductivity",
+        "var": 675
+    },
+    {
+        "task": "test-conductivity",
+        "var": 676
+    },
+    {
+        "task": "test-conductivity",
+        "var": 677
+    },
+    {
+        "task": "test-conductivity",
+        "var": 678
+    },
+    {
+        "task": "test-conductivity",
+        "var": 679
+    },
+    {
+        "task": "test-conductivity",
+        "var": 680
+    },
+    {
+        "task": "test-conductivity",
+        "var": 681
+    },
+    {
+        "task": "test-conductivity",
+        "var": 682
+    },
+    {
+        "task": "test-conductivity",
+        "var": 683
+    },
+    {
+        "task": "test-conductivity",
+        "var": 684
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 450
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 451
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 452
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 453
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 454
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 455
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 456
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 457
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 458
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 459
+    },
+    {
+        "task": "find-animal",
+        "var": 225
+    },
+    {
+        "task": "find-animal",
+        "var": 226
+    },
+    {
+        "task": "find-animal",
+        "var": 227
+    },
+    {
+        "task": "find-animal",
+        "var": 228
+    },
+    {
+        "task": "find-animal",
+        "var": 229
+    },
+    {
+        "task": "find-animal",
+        "var": 230
+    },
+    {
+        "task": "find-animal",
+        "var": 231
+    },
+    {
+        "task": "find-animal",
+        "var": 232
+    },
+    {
+        "task": "find-animal",
+        "var": 233
+    },
+    {
+        "task": "find-animal",
+        "var": 234
+    },
+    {
+        "task": "find-living-thing",
+        "var": 225
+    },
+    {
+        "task": "find-living-thing",
+        "var": 226
+    },
+    {
+        "task": "find-living-thing",
+        "var": 227
+    },
+    {
+        "task": "find-living-thing",
+        "var": 228
+    },
+    {
+        "task": "find-living-thing",
+        "var": 229
+    },
+    {
+        "task": "find-living-thing",
+        "var": 230
+    },
+    {
+        "task": "find-living-thing",
+        "var": 231
+    },
+    {
+        "task": "find-living-thing",
+        "var": 232
+    },
+    {
+        "task": "find-living-thing",
+        "var": 233
+    },
+    {
+        "task": "find-living-thing",
+        "var": 234
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 225
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 226
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 227
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 228
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 229
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 230
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 231
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 232
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 233
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 234
+    },
+    {
+        "task": "find-plant",
+        "var": 225
+    },
+    {
+        "task": "find-plant",
+        "var": 226
+    },
+    {
+        "task": "find-plant",
+        "var": 227
+    },
+    {
+        "task": "find-plant",
+        "var": 228
+    },
+    {
+        "task": "find-plant",
+        "var": 229
+    },
+    {
+        "task": "find-plant",
+        "var": 230
+    },
+    {
+        "task": "find-plant",
+        "var": 231
+    },
+    {
+        "task": "find-plant",
+        "var": 232
+    },
+    {
+        "task": "find-plant",
+        "var": 233
+    },
+    {
+        "task": "find-plant",
+        "var": 234
+    },
+    {
+        "task": "grow-fruit",
+        "var": 93
+    },
+    {
+        "task": "grow-fruit",
+        "var": 94
+    },
+    {
+        "task": "grow-fruit",
+        "var": 95
+    },
+    {
+        "task": "grow-fruit",
+        "var": 96
+    },
+    {
+        "task": "grow-fruit",
+        "var": 97
+    },
+    {
+        "task": "grow-fruit",
+        "var": 98
+    },
+    {
+        "task": "grow-fruit",
+        "var": 99
+    },
+    {
+        "task": "grow-fruit",
+        "var": 100
+    },
+    {
+        "task": "grow-fruit",
+        "var": 101
+    },
+    {
+        "task": "grow-fruit",
+        "var": 102
+    },
+    {
+        "task": "grow-plant",
+        "var": 93
+    },
+    {
+        "task": "grow-plant",
+        "var": 94
+    },
+    {
+        "task": "grow-plant",
+        "var": 95
+    },
+    {
+        "task": "grow-plant",
+        "var": 96
+    },
+    {
+        "task": "grow-plant",
+        "var": 97
+    },
+    {
+        "task": "grow-plant",
+        "var": 98
+    },
+    {
+        "task": "grow-plant",
+        "var": 99
+    },
+    {
+        "task": "grow-plant",
+        "var": 100
+    },
+    {
+        "task": "grow-plant",
+        "var": 101
+    },
+    {
+        "task": "grow-plant",
+        "var": 102
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 24
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 25
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 26
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 27
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 28
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 29
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 30
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 31
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 27
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 28
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 29
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 30
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 31
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 32
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 33
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 34
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 35
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 27
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 28
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 29
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 30
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 31
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 32
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 33
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 34
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 35
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 93
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 94
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 95
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 96
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 97
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 98
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 99
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 100
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 101
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 102
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 93
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 94
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 95
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 96
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 97
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 98
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 99
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 100
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 101
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 102
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 93
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 94
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 95
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 96
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 97
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 98
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 99
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 100
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 101
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 102
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 9
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 10
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 11
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 12
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 13
+    },
+    {
+        "task": "identify-life-stages-2",
+        "var": 6
+    },
+    {
+        "task": "identify-life-stages-2",
+        "var": 7
+    },
+    {
+        "task": "identify-life-stages-2",
+        "var": 8
+    },
+    {
+        "task": "identify-life-stages-2",
+        "var": 9
+    }
+]

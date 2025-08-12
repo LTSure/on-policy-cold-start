@@ -773,6 +773,7 @@ class RayPPOTrainer(object):
         from verl.utils.tracking import Tracking
         from omegaconf import OmegaConf
         # breakpoint()
+        print('[dasdasdas]')
         logger = Tracking(project_name=self.config.trainer.project_name,
                           experiment_name=self.config.trainer.experiment_name,
                           default_backend=self.config.trainer.logger,
@@ -783,14 +784,21 @@ class RayPPOTrainer(object):
         # load checkpoint before doing anything
         self._load_checkpoint()
 
+
+        if self.config.trainer.get("save_only", False):
+            self._save_checkpoint()
+            return
+            
         # perform validation before training
         # currently, we only support validation using the reward_function.
         if self.val_reward_fn is not None and self.config.trainer.get('val_before_train', True):
+            print('[sdahdkashdk]')
             val_metrics = self._validate() 
             pprint(f'Initial validation metrics: {val_metrics}')
             logger.log(data=val_metrics, step=self.global_steps)
             if self.config.trainer.get('val_only', False):
                 return
+
 
         # add tqdm
         progress_bar = tqdm(total=self.total_training_steps, initial=self.global_steps, desc="Training Progress")

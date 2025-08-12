@@ -176,7 +176,7 @@ class AlfRollout(BaseRollout):
         max_waiting_time = 100000
         while True:
             try:
-                res = requests.get(self.server_url + "/health")
+                res = requests.get(self.server_url + "/health", proxies={"http": None, "https": None})
                 if res.status_code == 200:
                     return True
             except:

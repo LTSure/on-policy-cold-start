@@ -176,7 +176,7 @@ class SciRollout(BaseRollout):
         max_waiting_time = 100000
         while True:
             try:
-                res = requests.get(self.server_url + "/health")
+                res = requests.get(self.server_url + "/health", proxies={"http": None, "https": None})
                 if res.status_code == 200:
                     return True
             except:
@@ -191,7 +191,7 @@ class SciRollout(BaseRollout):
             observation_str = ["You arrive at shelf 1. On the shelf 1, you see a candle 2, and a soapbar 1."] * len(task)
             task_str = ["put soapbar into shelf"] * len(task)
         else:
-            res = requests.post(self.server_url + "/reset", json={'task': task, 'var': var, 'simplificationStr': self.easy}) 
+            res = requests.post(self.server_url + "/reset", json={'task': task, 'var': var, 'simplificationStr': self.easy},proxies={"http": None, "https": None}) 
             obs = res.json()['observations']
             tasks_des = res.json()['tasks']
 
@@ -204,7 +204,7 @@ class SciRollout(BaseRollout):
             res['scores'] = [0] * len(batch_steps)
             res['dones'] = [0] * len(batch_steps)
         else:
-            res = requests.post(self.server_url + "/step", json={'actions': batch_steps})
+            res = requests.post(self.server_url + "/step", json={'actions': batch_steps},proxies={"http": None, "https": None})
             res = res.json()
  
         return res['observations'], res['scores'], res['dones']
@@ -300,21 +300,49 @@ class SciRollout(BaseRollout):
             # system_prompt = self.get_system_prompt(system_info)
             system_prompt = system_prompt
 
+            # [lhy replace]
+            # states = [{
+            #     "messages": [
+            #             {
+            #                 "content": system_prompt,
+            #                 "role": "system"
+            #             },
+            #             {
+            #                 "content": f"{tasks_des[i]}\n\nObservation:{system_info[i]}",
+            #                 "role": "user"
+            #             }
+            #     ], 
+            #     "completed": False, 
+            #     "skip_flag": False,
+            #     "prompt_tokens": -1
+            # } for i in range(len(task))]
+
+
+            tasks_des_new = [tasks_des[i].replace("Task Description:\n", "") for i in range(len(task))]
             states = [{
                 "messages": [
-                        {
-                            "content": system_prompt,
-                            "role": "system"
-                        },
-                        {
-                            "content": f"{task[i]}: {var[i]}\n\n{tasks_des[i]}\n\nObservation:{system_info[i]}",
-                            "role": "user"
-                        }
+                    {   
+                        'role': 'system', 
+                        'content': "You are a helpful agent that interacts with the virtual science school environment to solve the given task. "
+                    },
+                    {
+                        "role": "user",
+                        "content": "You are an agent for science world. Every round I will give you an observation, you have to respond an action based on the observation to finish the given task. Here are the actions you may take: [{\"action\": \"open/close OBJ\", \"description\": \"open/close a container\"}, {\"action\": \"de/activate OBJ\", \"description\": \"activate/deactivate a device\"}, {\"action\": \"connect OBJ to OBJ\", \"description\": \"connect electrical components\"}, {\"action\": \"disconnect OBJ\", \"description\": \"disconnect electrical components\"}, {\"action\": \"use OBJ [on OBJ]\", \"description\": \"use a device/item\"}, {\"action\": \"look around\", \"description\": \"describe the current room\"}, {\"action\": \"look at OBJ\", \"description\": \"describe an object in detail\"}, {\"action\": \"look in OBJ\", \"description\": \"describe a container's contents\"}, {\"action\": \"read OBJ\", \"description\": \"read a note or book\"}, {\"action\": \"move OBJ to OBJ\", \"description\": \"move an object to a container\"}, {\"action\": \"pick up OBJ\", \"description\": \"move an object to the inventory\"}, {\"action\": \"put down OBJ\", \"description\": \"drop an inventory item\"}, {\"action\": \"pour OBJ into OBJ\", \"description\": \"pour a liquid into a container\"}, {\"action\": \"dunk OBJ into OBJ\", \"description\": \"dunk a container into a liquid\"}, {\"action\": \"mix OBJ\", \"description\": \"chemically mix a container\"}, {\"action\": \"go to LOC\", \"description\": \"move to a new location\"}, {\"action\": \"eat OBJ\", \"description\": \"eat a food\"}, {\"action\": \"flush OBJ\", \"description\": \"flush a toilet\"}, {\"action\": \"focus on OBJ\", \"description\": \"signal intent on a task object\"}, {\"action\": \"wait\", \"description\": \"take no action for 10 iterations\"}, {\"action\": \"wait1\", \"description\": \"take no action for 1 iteration\"}, {\"action\": \"task\", \"description\": \"describe current task\"}, {\"action\": \"inventory\", \"description\": \"list your inventory\"}]\nYour response should use the following format:\nThought:\nyour thoughts.\n\nAction:\nyour next action"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "OK. I'll follow your instructions and try my best to solve the task."
+                    },
+                    {
+                        "role": "user",
+                        "content": f"{tasks_des_new[i]}\n{system_info[i]}"
+                    }
                 ], 
                 "completed": False, 
                 "skip_flag": False,
                 "prompt_tokens": -1
             } for i in range(len(task))]
+            # [lhy replace]
 
             # breakpoint()
             completion_mask = [[] for _ in states]
@@ -345,10 +373,34 @@ class SciRollout(BaseRollout):
                         states[i]["completed"] = True
                         batch_obs[i] = batch_obs[i] + '\nscores: ' + str(batch_scores[i])
                     
+
+                    # [lhy replace]
+
+                    # states[i]["messages"].append({
+                    #     "role": "tool",
+                    #     "content": "Observation:" + batch_obs[i]
+                    # })
+                    
+                    # if "No known action matches that input" in batach_obs[i]:
+                    #     states[i]["messages"].pop()
+                    #     continue
+
+
                     states[i]["messages"].append({
-                        "role": "tool",
-                        "content": "Observation:" + batch_obs[i]
+                        "role": "user",
+                        "content": batch_obs[i]
                     })
+
+                    messages_text = "\n".join([f"{m['role']}: {m['content']}" for m in states[i]["messages"]])
+                    import os
+                    log_dir = "/cpfs04/user/liutianshuo/Embodied-Planner-R1/log/"
+                    os.makedirs(log_dir, exist_ok=True)
+
+                    with open(f"/cpfs04/user/liutianshuo/Embodied-Planner-R1/log/task_{i}_dialogue.txt", "a", encoding="utf-8") as f:
+                        f.write(f"\n=== Step Update ===\n")
+                        f.write(messages_text)
+                        f.write("\n\n")
+                    # [lhy replace]
                 
                     prompt_token_ids = outputs[i].prompt_token_ids
                     token_ids = outputs[i].outputs[0].token_ids

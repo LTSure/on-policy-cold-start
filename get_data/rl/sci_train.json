@@ -1,0 +1,5934 @@
+[
+    {
+        "task": "test-conductivity",
+        "var": 412
+    },
+    {
+        "task": "find-animal",
+        "var": 0
+    },
+    {
+        "task": "grow-fruit",
+        "var": 53
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 52
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 262
+    },
+    {
+        "task": "use-thermometer",
+        "var": 45
+    },
+    {
+        "task": "use-thermometer",
+        "var": 141
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 99
+    },
+    {
+        "task": "use-thermometer",
+        "var": 172
+    },
+    {
+        "task": "find-plant",
+        "var": 70
+    },
+    {
+        "task": "find-living-thing",
+        "var": 147
+    },
+    {
+        "task": "use-thermometer",
+        "var": 191
+    },
+    {
+        "task": "grow-fruit",
+        "var": 11
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 274
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 8
+    },
+    {
+        "task": "test-conductivity",
+        "var": 59
+    },
+    {
+        "task": "test-conductivity",
+        "var": 20
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 167
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 126
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 84
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 195
+    },
+    {
+        "task": "find-living-thing",
+        "var": 21
+    },
+    {
+        "task": "grow-fruit",
+        "var": 23
+    },
+    {
+        "task": "grow-fruit",
+        "var": 20
+    },
+    {
+        "task": "test-conductivity",
+        "var": 397
+    },
+    {
+        "task": "find-plant",
+        "var": 131
+    },
+    {
+        "task": "test-conductivity",
+        "var": 394
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 15
+    },
+    {
+        "task": "find-living-thing",
+        "var": 89
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 51
+    },
+    {
+        "task": "find-plant",
+        "var": 30
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 18
+    },
+    {
+        "task": "grow-plant",
+        "var": 29
+    },
+    {
+        "task": "find-plant",
+        "var": 56
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 15
+    },
+    {
+        "task": "test-conductivity",
+        "var": 197
+    },
+    {
+        "task": "find-living-thing",
+        "var": 35
+    },
+    {
+        "task": "find-living-thing",
+        "var": 43
+    },
+    {
+        "task": "test-conductivity",
+        "var": 23
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 40
+    },
+    {
+        "task": "test-conductivity",
+        "var": 390
+    },
+    {
+        "task": "find-living-thing",
+        "var": 38
+    },
+    {
+        "task": "grow-plant",
+        "var": 41
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 21
+    },
+    {
+        "task": "find-plant",
+        "var": 91
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 188
+    },
+    {
+        "task": "find-plant",
+        "var": 74
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 5
+    },
+    {
+        "task": "use-thermometer",
+        "var": 267
+    },
+    {
+        "task": "use-thermometer",
+        "var": 100
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 59
+    },
+    {
+        "task": "test-conductivity",
+        "var": 30
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 99
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 53
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 0
+    },
+    {
+        "task": "find-living-thing",
+        "var": 3
+    },
+    {
+        "task": "find-living-thing",
+        "var": 10
+    },
+    {
+        "task": "test-conductivity",
+        "var": 336
+    },
+    {
+        "task": "find-animal",
+        "var": 54
+    },
+    {
+        "task": "find-plant",
+        "var": 85
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 12
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 204
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 15
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 63
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 247
+    },
+    {
+        "task": "grow-plant",
+        "var": 33
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 1
+    },
+    {
+        "task": "find-plant",
+        "var": 71
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 79
+    },
+    {
+        "task": "find-animal",
+        "var": 22
+    },
+    {
+        "task": "find-living-thing",
+        "var": 108
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 58
+    },
+    {
+        "task": "find-plant",
+        "var": 47
+    },
+    {
+        "task": "test-conductivity",
+        "var": 300
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 59
+    },
+    {
+        "task": "use-thermometer",
+        "var": 87
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 16
+    },
+    {
+        "task": "test-conductivity",
+        "var": 339
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 38
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 45
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 47
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 3
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 22
+    },
+    {
+        "task": "test-conductivity",
+        "var": 78
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 61
+    },
+    {
+        "task": "grow-plant",
+        "var": 1
+    },
+    {
+        "task": "use-thermometer",
+        "var": 214
+    },
+    {
+        "task": "grow-plant",
+        "var": 5
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 18
+    },
+    {
+        "task": "find-living-thing",
+        "var": 121
+    },
+    {
+        "task": "boil",
+        "var": 4
+    },
+    {
+        "task": "find-living-thing",
+        "var": 140
+    },
+    {
+        "task": "use-thermometer",
+        "var": 170
+    },
+    {
+        "task": "find-plant",
+        "var": 49
+    },
+    {
+        "task": "test-conductivity",
+        "var": 228
+    },
+    {
+        "task": "grow-plant",
+        "var": 51
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 184
+    },
+    {
+        "task": "use-thermometer",
+        "var": 133
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 96
+    },
+    {
+        "task": "test-conductivity",
+        "var": 311
+    },
+    {
+        "task": "test-conductivity",
+        "var": 401
+    },
+    {
+        "task": "use-thermometer",
+        "var": 107
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 94
+    },
+    {
+        "task": "use-thermometer",
+        "var": 72
+    },
+    {
+        "task": "use-thermometer",
+        "var": 219
+    },
+    {
+        "task": "boil",
+        "var": 11
+    },
+    {
+        "task": "find-plant",
+        "var": 94
+    },
+    {
+        "task": "test-conductivity",
+        "var": 145
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 154
+    },
+    {
+        "task": "test-conductivity",
+        "var": 89
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 130
+    },
+    {
+        "task": "melt",
+        "var": 2
+    },
+    {
+        "task": "test-conductivity",
+        "var": 121
+    },
+    {
+        "task": "find-plant",
+        "var": 135
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 114
+    },
+    {
+        "task": "find-plant",
+        "var": 55
+    },
+    {
+        "task": "test-conductivity",
+        "var": 417
+    },
+    {
+        "task": "use-thermometer",
+        "var": 209
+    },
+    {
+        "task": "use-thermometer",
+        "var": 82
+    },
+    {
+        "task": "test-conductivity",
+        "var": 230
+    },
+    {
+        "task": "test-conductivity",
+        "var": 192
+    },
+    {
+        "task": "use-thermometer",
+        "var": 248
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 145
+    },
+    {
+        "task": "test-conductivity",
+        "var": 344
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 2
+    },
+    {
+        "task": "find-animal",
+        "var": 56
+    },
+    {
+        "task": "use-thermometer",
+        "var": 210
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 1
+    },
+    {
+        "task": "test-conductivity",
+        "var": 6
+    },
+    {
+        "task": "use-thermometer",
+        "var": 49
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 30
+    },
+    {
+        "task": "find-living-thing",
+        "var": 94
+    },
+    {
+        "task": "use-thermometer",
+        "var": 198
+    },
+    {
+        "task": "use-thermometer",
+        "var": 61
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 27
+    },
+    {
+        "task": "use-thermometer",
+        "var": 202
+    },
+    {
+        "task": "test-conductivity",
+        "var": 330
+    },
+    {
+        "task": "use-thermometer",
+        "var": 105
+    },
+    {
+        "task": "test-conductivity",
+        "var": 238
+    },
+    {
+        "task": "use-thermometer",
+        "var": 256
+    },
+    {
+        "task": "test-conductivity",
+        "var": 420
+    },
+    {
+        "task": "grow-plant",
+        "var": 60
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 49
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 39
+    },
+    {
+        "task": "use-thermometer",
+        "var": 156
+    },
+    {
+        "task": "find-animal",
+        "var": 26
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 134
+    },
+    {
+        "task": "grow-plant",
+        "var": 38
+    },
+    {
+        "task": "test-conductivity",
+        "var": 109
+    },
+    {
+        "task": "test-conductivity",
+        "var": 29
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 95
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 1
+    },
+    {
+        "task": "test-conductivity",
+        "var": 369
+    },
+    {
+        "task": "find-plant",
+        "var": 121
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 0
+    },
+    {
+        "task": "use-thermometer",
+        "var": 276
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 54
+    },
+    {
+        "task": "test-conductivity",
+        "var": 147
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 47
+    },
+    {
+        "task": "test-conductivity",
+        "var": 101
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 4
+    },
+    {
+        "task": "test-conductivity",
+        "var": 92
+    },
+    {
+        "task": "grow-fruit",
+        "var": 52
+    },
+    {
+        "task": "test-conductivity",
+        "var": 62
+    },
+    {
+        "task": "find-plant",
+        "var": 89
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 42
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 315
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 240
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 36
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 7
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 22
+    },
+    {
+        "task": "find-plant",
+        "var": 103
+    },
+    {
+        "task": "use-thermometer",
+        "var": 221
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 139
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 12
+    },
+    {
+        "task": "test-conductivity",
+        "var": 163
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 49
+    },
+    {
+        "task": "use-thermometer",
+        "var": 171
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 64
+    },
+    {
+        "task": "test-conductivity",
+        "var": 531
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 9
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 394
+    },
+    {
+        "task": "test-conductivity",
+        "var": 154
+    },
+    {
+        "task": "power-component",
+        "var": 1
+    },
+    {
+        "task": "find-plant",
+        "var": 44
+    },
+    {
+        "task": "find-living-thing",
+        "var": 149
+    },
+    {
+        "task": "use-thermometer",
+        "var": 132
+    },
+    {
+        "task": "test-conductivity",
+        "var": 247
+    },
+    {
+        "task": "use-thermometer",
+        "var": 282
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 143
+    },
+    {
+        "task": "find-animal",
+        "var": 4
+    },
+    {
+        "task": "test-conductivity",
+        "var": 673
+    },
+    {
+        "task": "test-conductivity",
+        "var": 525
+    },
+    {
+        "task": "freeze",
+        "var": 9
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 14
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 332
+    },
+    {
+        "task": "freeze",
+        "var": 5
+    },
+    {
+        "task": "test-conductivity",
+        "var": 186
+    },
+    {
+        "task": "melt",
+        "var": 10
+    },
+    {
+        "task": "test-conductivity",
+        "var": 489
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 345
+    },
+    {
+        "task": "test-conductivity",
+        "var": 348
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 2
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 118
+    },
+    {
+        "task": "test-conductivity",
+        "var": 488
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 132
+    },
+    {
+        "task": "find-living-thing",
+        "var": 128
+    },
+    {
+        "task": "test-conductivity",
+        "var": 427
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 323
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 13
+    },
+    {
+        "task": "find-animal",
+        "var": 29
+    },
+    {
+        "task": "find-animal",
+        "var": 34
+    },
+    {
+        "task": "use-thermometer",
+        "var": 77
+    },
+    {
+        "task": "test-conductivity",
+        "var": 665
+    },
+    {
+        "task": "use-thermometer",
+        "var": 366
+    },
+    {
+        "task": "use-thermometer",
+        "var": 224
+    },
+    {
+        "task": "test-conductivity",
+        "var": 39
+    },
+    {
+        "task": "use-thermometer",
+        "var": 192
+    },
+    {
+        "task": "test-conductivity",
+        "var": 65
+    },
+    {
+        "task": "use-thermometer",
+        "var": 158
+    },
+    {
+        "task": "test-conductivity",
+        "var": 110
+    },
+    {
+        "task": "find-living-thing",
+        "var": 86
+    },
+    {
+        "task": "use-thermometer",
+        "var": 326
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 61
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 10
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 47
+    },
+    {
+        "task": "boil",
+        "var": 13
+    },
+    {
+        "task": "find-animal",
+        "var": 69
+    },
+    {
+        "task": "test-conductivity",
+        "var": 309
+    },
+    {
+        "task": "find-animal",
+        "var": 101
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 235
+    },
+    {
+        "task": "test-conductivity",
+        "var": 159
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 105
+    },
+    {
+        "task": "grow-plant",
+        "var": 26
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 158
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 57
+    },
+    {
+        "task": "find-living-thing",
+        "var": 135
+    },
+    {
+        "task": "find-plant",
+        "var": 68
+    },
+    {
+        "task": "test-conductivity",
+        "var": 648
+    },
+    {
+        "task": "find-animal",
+        "var": 10
+    },
+    {
+        "task": "test-conductivity",
+        "var": 537
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 124
+    },
+    {
+        "task": "test-conductivity",
+        "var": 81
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 81
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 28
+    },
+    {
+        "task": "find-living-thing",
+        "var": 124
+    },
+    {
+        "task": "grow-fruit",
+        "var": 56
+    },
+    {
+        "task": "find-living-thing",
+        "var": 103
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 38
+    },
+    {
+        "task": "use-thermometer",
+        "var": 343
+    },
+    {
+        "task": "test-conductivity",
+        "var": 461
+    },
+    {
+        "task": "find-animal",
+        "var": 99
+    },
+    {
+        "task": "find-animal",
+        "var": 128
+    },
+    {
+        "task": "find-plant",
+        "var": 37
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 121
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 301
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 61
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 36
+    },
+    {
+        "task": "find-living-thing",
+        "var": 41
+    },
+    {
+        "task": "test-conductivity",
+        "var": 217
+    },
+    {
+        "task": "use-thermometer",
+        "var": 59
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 116
+    },
+    {
+        "task": "find-plant",
+        "var": 24
+    },
+    {
+        "task": "use-thermometer",
+        "var": 370
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 429
+    },
+    {
+        "task": "test-conductivity",
+        "var": 265
+    },
+    {
+        "task": "test-conductivity",
+        "var": 610
+    },
+    {
+        "task": "test-conductivity",
+        "var": 581
+    },
+    {
+        "task": "use-thermometer",
+        "var": 296
+    },
+    {
+        "task": "grow-plant",
+        "var": 11
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 51
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 329
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 125
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 273
+    },
+    {
+        "task": "use-thermometer",
+        "var": 228
+    },
+    {
+        "task": "find-animal",
+        "var": 9
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 22
+    },
+    {
+        "task": "test-conductivity",
+        "var": 321
+    },
+    {
+        "task": "test-conductivity",
+        "var": 362
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 66
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 9
+    },
+    {
+        "task": "use-thermometer",
+        "var": 404
+    },
+    {
+        "task": "test-conductivity",
+        "var": 254
+    },
+    {
+        "task": "test-conductivity",
+        "var": 42
+    },
+    {
+        "task": "test-conductivity",
+        "var": 396
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 72
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 40
+    },
+    {
+        "task": "test-conductivity",
+        "var": 290
+    },
+    {
+        "task": "find-plant",
+        "var": 0
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 152
+    },
+    {
+        "task": "test-conductivity",
+        "var": 560
+    },
+    {
+        "task": "use-thermometer",
+        "var": 92
+    },
+    {
+        "task": "melt",
+        "var": 12
+    },
+    {
+        "task": "test-conductivity",
+        "var": 590
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 14
+    },
+    {
+        "task": "test-conductivity",
+        "var": 460
+    },
+    {
+        "task": "test-conductivity",
+        "var": 215
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 114
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 72
+    },
+    {
+        "task": "find-animal",
+        "var": 148
+    },
+    {
+        "task": "grow-plant",
+        "var": 7
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 11
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 85
+    },
+    {
+        "task": "find-plant",
+        "var": 19
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 294
+    },
+    {
+        "task": "find-plant",
+        "var": 129
+    },
+    {
+        "task": "test-conductivity",
+        "var": 294
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 41
+    },
+    {
+        "task": "use-thermometer",
+        "var": 389
+    },
+    {
+        "task": "find-plant",
+        "var": 40
+    },
+    {
+        "task": "use-thermometer",
+        "var": 42
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 34
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 406
+    },
+    {
+        "task": "use-thermometer",
+        "var": 86
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 360
+    },
+    {
+        "task": "test-conductivity",
+        "var": 587
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 386
+    },
+    {
+        "task": "use-thermometer",
+        "var": 330
+    },
+    {
+        "task": "test-conductivity",
+        "var": 319
+    },
+    {
+        "task": "test-conductivity",
+        "var": 253
+    },
+    {
+        "task": "identify-life-stages-2",
+        "var": 2
+    },
+    {
+        "task": "test-conductivity",
+        "var": 573
+    },
+    {
+        "task": "find-plant",
+        "var": 98
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 151
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 35
+    },
+    {
+        "task": "test-conductivity",
+        "var": 407
+    },
+    {
+        "task": "use-thermometer",
+        "var": 301
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 57
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 148
+    },
+    {
+        "task": "use-thermometer",
+        "var": 7
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 8
+    },
+    {
+        "task": "use-thermometer",
+        "var": 138
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 312
+    },
+    {
+        "task": "test-conductivity",
+        "var": 626
+    },
+    {
+        "task": "test-conductivity",
+        "var": 258
+    },
+    {
+        "task": "find-living-thing",
+        "var": 51
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 40
+    },
+    {
+        "task": "use-thermometer",
+        "var": 353
+    },
+    {
+        "task": "test-conductivity",
+        "var": 465
+    },
+    {
+        "task": "find-animal",
+        "var": 130
+    },
+    {
+        "task": "use-thermometer",
+        "var": 136
+    },
+    {
+        "task": "find-animal",
+        "var": 113
+    },
+    {
+        "task": "test-conductivity",
+        "var": 36
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 83
+    },
+    {
+        "task": "use-thermometer",
+        "var": 193
+    },
+    {
+        "task": "find-animal",
+        "var": 223
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 67
+    },
+    {
+        "task": "test-conductivity",
+        "var": 115
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 431
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 49
+    },
+    {
+        "task": "find-animal",
+        "var": 143
+    },
+    {
+        "task": "test-conductivity",
+        "var": 188
+    },
+    {
+        "task": "find-living-thing",
+        "var": 15
+    },
+    {
+        "task": "test-conductivity",
+        "var": 541
+    },
+    {
+        "task": "find-plant",
+        "var": 62
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 102
+    },
+    {
+        "task": "find-plant",
+        "var": 60
+    },
+    {
+        "task": "test-conductivity",
+        "var": 293
+    },
+    {
+        "task": "find-living-thing",
+        "var": 30
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 349
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 205
+    },
+    {
+        "task": "test-conductivity",
+        "var": 211
+    },
+    {
+        "task": "use-thermometer",
+        "var": 108
+    },
+    {
+        "task": "use-thermometer",
+        "var": 237
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 38
+    },
+    {
+        "task": "find-plant",
+        "var": 65
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 250
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 8
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 172
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 425
+    },
+    {
+        "task": "use-thermometer",
+        "var": 381
+    },
+    {
+        "task": "use-thermometer",
+        "var": 187
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 303
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 44
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 1
+    },
+    {
+        "task": "find-animal",
+        "var": 76
+    },
+    {
+        "task": "find-animal",
+        "var": 17
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 22
+    },
+    {
+        "task": "test-conductivity",
+        "var": 500
+    },
+    {
+        "task": "find-living-thing",
+        "var": 78
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 188
+    },
+    {
+        "task": "find-animal",
+        "var": 45
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 397
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 101
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 105
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 324
+    },
+    {
+        "task": "test-conductivity",
+        "var": 459
+    },
+    {
+        "task": "test-conductivity",
+        "var": 456
+    },
+    {
+        "task": "test-conductivity",
+        "var": 133
+    },
+    {
+        "task": "test-conductivity",
+        "var": 181
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 135
+    },
+    {
+        "task": "test-conductivity",
+        "var": 306
+    },
+    {
+        "task": "identify-life-stages-2",
+        "var": 1
+    },
+    {
+        "task": "find-living-thing",
+        "var": 116
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 230
+    },
+    {
+        "task": "use-thermometer",
+        "var": 399
+    },
+    {
+        "task": "find-plant",
+        "var": 27
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 223
+    },
+    {
+        "task": "use-thermometer",
+        "var": 361
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 201
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 6
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 15
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 248
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 34
+    },
+    {
+        "task": "test-conductivity",
+        "var": 521
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 254
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 4
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 178
+    },
+    {
+        "task": "find-living-thing",
+        "var": 129
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 234
+    },
+    {
+        "task": "use-thermometer",
+        "var": 95
+    },
+    {
+        "task": "test-conductivity",
+        "var": 618
+    },
+    {
+        "task": "find-plant",
+        "var": 146
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 128
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 44
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 98
+    },
+    {
+        "task": "grow-fruit",
+        "var": 58
+    },
+    {
+        "task": "use-thermometer",
+        "var": 254
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 202
+    },
+    {
+        "task": "test-conductivity",
+        "var": 423
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 328
+    },
+    {
+        "task": "find-animal",
+        "var": 83
+    },
+    {
+        "task": "find-living-thing",
+        "var": 138
+    },
+    {
+        "task": "test-conductivity",
+        "var": 47
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 72
+    },
+    {
+        "task": "find-animal",
+        "var": 97
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 385
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 189
+    },
+    {
+        "task": "test-conductivity",
+        "var": 553
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 156
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 142
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 196
+    },
+    {
+        "task": "use-thermometer",
+        "var": 68
+    },
+    {
+        "task": "use-thermometer",
+        "var": 252
+    },
+    {
+        "task": "find-living-thing",
+        "var": 68
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 54
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 7
+    },
+    {
+        "task": "find-living-thing",
+        "var": 24
+    },
+    {
+        "task": "test-conductivity",
+        "var": 510
+    },
+    {
+        "task": "grow-fruit",
+        "var": 3
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 34
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 176
+    },
+    {
+        "task": "test-conductivity",
+        "var": 4
+    },
+    {
+        "task": "grow-plant",
+        "var": 48
+    },
+    {
+        "task": "test-conductivity",
+        "var": 331
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 196
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 13
+    },
+    {
+        "task": "test-conductivity",
+        "var": 359
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 10
+    },
+    {
+        "task": "test-conductivity",
+        "var": 50
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 8
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 35
+    },
+    {
+        "task": "grow-plant",
+        "var": 14
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 39
+    },
+    {
+        "task": "find-living-thing",
+        "var": 143
+    },
+    {
+        "task": "find-plant",
+        "var": 52
+    },
+    {
+        "task": "test-conductivity",
+        "var": 260
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 5
+    },
+    {
+        "task": "test-conductivity",
+        "var": 371
+    },
+    {
+        "task": "test-conductivity",
+        "var": 557
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 272
+    },
+    {
+        "task": "use-thermometer",
+        "var": 347
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 61
+    },
+    {
+        "task": "test-conductivity",
+        "var": 540
+    },
+    {
+        "task": "find-living-thing",
+        "var": 9
+    },
+    {
+        "task": "test-conductivity",
+        "var": 117
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 236
+    },
+    {
+        "task": "use-thermometer",
+        "var": 235
+    },
+    {
+        "task": "use-thermometer",
+        "var": 265
+    },
+    {
+        "task": "use-thermometer",
+        "var": 398
+    },
+    {
+        "task": "test-conductivity",
+        "var": 601
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 19
+    },
+    {
+        "task": "find-plant",
+        "var": 194
+    },
+    {
+        "task": "find-animal",
+        "var": 25
+    },
+    {
+        "task": "find-animal",
+        "var": 55
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 81
+    },
+    {
+        "task": "use-thermometer",
+        "var": 197
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 133
+    },
+    {
+        "task": "find-living-thing",
+        "var": 117
+    },
+    {
+        "task": "find-plant",
+        "var": 69
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 295
+    },
+    {
+        "task": "test-conductivity",
+        "var": 11
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 214
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 52
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 219
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 214
+    },
+    {
+        "task": "test-conductivity",
+        "var": 377
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 132
+    },
+    {
+        "task": "find-plant",
+        "var": 205
+    },
+    {
+        "task": "find-plant",
+        "var": 122
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 110
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 122
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 217
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 10
+    },
+    {
+        "task": "use-thermometer",
+        "var": 175
+    },
+    {
+        "task": "test-conductivity",
+        "var": 16
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 36
+    },
+    {
+        "task": "find-plant",
+        "var": 95
+    },
+    {
+        "task": "find-animal",
+        "var": 74
+    },
+    {
+        "task": "test-conductivity",
+        "var": 279
+    },
+    {
+        "task": "test-conductivity",
+        "var": 415
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 93
+    },
+    {
+        "task": "use-thermometer",
+        "var": 166
+    },
+    {
+        "task": "test-conductivity",
+        "var": 323
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 264
+    },
+    {
+        "task": "test-conductivity",
+        "var": 635
+    },
+    {
+        "task": "find-animal",
+        "var": 212
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 243
+    },
+    {
+        "task": "find-plant",
+        "var": 78
+    },
+    {
+        "task": "test-conductivity",
+        "var": 444
+    },
+    {
+        "task": "find-animal",
+        "var": 147
+    },
+    {
+        "task": "find-plant",
+        "var": 105
+    },
+    {
+        "task": "find-plant",
+        "var": 42
+    },
+    {
+        "task": "test-conductivity",
+        "var": 123
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 3
+    },
+    {
+        "task": "find-plant",
+        "var": 59
+    },
+    {
+        "task": "test-conductivity",
+        "var": 225
+    },
+    {
+        "task": "use-thermometer",
+        "var": 335
+    },
+    {
+        "task": "use-thermometer",
+        "var": 149
+    },
+    {
+        "task": "use-thermometer",
+        "var": 279
+    },
+    {
+        "task": "use-thermometer",
+        "var": 98
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 190
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 78
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 20
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 175
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 233
+    },
+    {
+        "task": "use-thermometer",
+        "var": 392
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 319
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 299
+    },
+    {
+        "task": "test-conductivity",
+        "var": 647
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 120
+    },
+    {
+        "task": "test-conductivity",
+        "var": 368
+    },
+    {
+        "task": "find-living-thing",
+        "var": 26
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 246
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 210
+    },
+    {
+        "task": "find-animal",
+        "var": 85
+    },
+    {
+        "task": "find-living-thing",
+        "var": 60
+    },
+    {
+        "task": "test-conductivity",
+        "var": 512
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 231
+    },
+    {
+        "task": "find-animal",
+        "var": 179
+    },
+    {
+        "task": "test-conductivity",
+        "var": 271
+    },
+    {
+        "task": "find-plant",
+        "var": 64
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 0
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 2
+    },
+    {
+        "task": "boil",
+        "var": 8
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 111
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 162
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 244
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 91
+    },
+    {
+        "task": "use-thermometer",
+        "var": 263
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 178
+    },
+    {
+        "task": "find-animal",
+        "var": 107
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 150
+    },
+    {
+        "task": "use-thermometer",
+        "var": 391
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 47
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 366
+    },
+    {
+        "task": "find-animal",
+        "var": 215
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 38
+    },
+    {
+        "task": "find-animal",
+        "var": 220
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 45
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 255
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 26
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 220
+    },
+    {
+        "task": "use-thermometer",
+        "var": 367
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 2
+    },
+    {
+        "task": "find-animal",
+        "var": 201
+    },
+    {
+        "task": "find-plant",
+        "var": 221
+    },
+    {
+        "task": "use-thermometer",
+        "var": 203
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 124
+    },
+    {
+        "task": "find-plant",
+        "var": 185
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 182
+    },
+    {
+        "task": "use-thermometer",
+        "var": 320
+    },
+    {
+        "task": "find-animal",
+        "var": 19
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 29
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 200
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 441
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 363
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 3
+    },
+    {
+        "task": "find-plant",
+        "var": 1
+    },
+    {
+        "task": "grow-plant",
+        "var": 40
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 98
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 185
+    },
+    {
+        "task": "use-thermometer",
+        "var": 368
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 106
+    },
+    {
+        "task": "find-plant",
+        "var": 187
+    },
+    {
+        "task": "find-plant",
+        "var": 102
+    },
+    {
+        "task": "find-animal",
+        "var": 62
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 195
+    },
+    {
+        "task": "use-thermometer",
+        "var": 188
+    },
+    {
+        "task": "find-plant",
+        "var": 5
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 112
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 50
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 314
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 293
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 177
+    },
+    {
+        "task": "use-thermometer",
+        "var": 91
+    },
+    {
+        "task": "find-animal",
+        "var": 6
+    },
+    {
+        "task": "use-thermometer",
+        "var": 293
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 9
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 51
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 241
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 5
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 85
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 258
+    },
+    {
+        "task": "find-plant",
+        "var": 8
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 150
+    },
+    {
+        "task": "find-living-thing",
+        "var": 58
+    },
+    {
+        "task": "use-thermometer",
+        "var": 401
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 138
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 154
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 16
+    },
+    {
+        "task": "find-plant",
+        "var": 26
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 4
+    },
+    {
+        "task": "use-thermometer",
+        "var": 124
+    },
+    {
+        "task": "find-living-thing",
+        "var": 88
+    },
+    {
+        "task": "melt",
+        "var": 0
+    },
+    {
+        "task": "grow-fruit",
+        "var": 25
+    },
+    {
+        "task": "use-thermometer",
+        "var": 144
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 353
+    },
+    {
+        "task": "identify-life-stages-2",
+        "var": 0
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 10
+    },
+    {
+        "task": "boil",
+        "var": 7
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 143
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 391
+    },
+    {
+        "task": "find-plant",
+        "var": 211
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 261
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 9
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 141
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 55
+    },
+    {
+        "task": "use-thermometer",
+        "var": 243
+    },
+    {
+        "task": "grow-fruit",
+        "var": 37
+    },
+    {
+        "task": "grow-plant",
+        "var": 25
+    },
+    {
+        "task": "use-thermometer",
+        "var": 206
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 27
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 41
+    },
+    {
+        "task": "find-animal",
+        "var": 68
+    },
+    {
+        "task": "grow-fruit",
+        "var": 6
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 70
+    },
+    {
+        "task": "use-thermometer",
+        "var": 128
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 110
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 422
+    },
+    {
+        "task": "use-thermometer",
+        "var": 121
+    },
+    {
+        "task": "find-living-thing",
+        "var": 48
+    },
+    {
+        "task": "use-thermometer",
+        "var": 225
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 310
+    },
+    {
+        "task": "freeze",
+        "var": 4
+    },
+    {
+        "task": "use-thermometer",
+        "var": 102
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 242
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 198
+    },
+    {
+        "task": "find-animal",
+        "var": 174
+    },
+    {
+        "task": "use-thermometer",
+        "var": 286
+    },
+    {
+        "task": "use-thermometer",
+        "var": 284
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 6
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 181
+    },
+    {
+        "task": "use-thermometer",
+        "var": 155
+    },
+    {
+        "task": "grow-fruit",
+        "var": 55
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 70
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 52
+    },
+    {
+        "task": "find-plant",
+        "var": 164
+    },
+    {
+        "task": "grow-fruit",
+        "var": 2
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 46
+    },
+    {
+        "task": "find-animal",
+        "var": 13
+    },
+    {
+        "task": "find-living-thing",
+        "var": 213
+    },
+    {
+        "task": "grow-plant",
+        "var": 54
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 8
+    },
+    {
+        "task": "find-living-thing",
+        "var": 13
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 147
+    },
+    {
+        "task": "use-thermometer",
+        "var": 169
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 119
+    },
+    {
+        "task": "use-thermometer",
+        "var": 22
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 27
+    },
+    {
+        "task": "find-animal",
+        "var": 53
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 80
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 38
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 162
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 199
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 14
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 398
+    },
+    {
+        "task": "find-plant",
+        "var": 178
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 172
+    },
+    {
+        "task": "find-living-thing",
+        "var": 179
+    },
+    {
+        "task": "find-plant",
+        "var": 72
+    },
+    {
+        "task": "use-thermometer",
+        "var": 81
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 438
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 80
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 153
+    },
+    {
+        "task": "find-animal",
+        "var": 109
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 99
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 88
+    },
+    {
+        "task": "use-thermometer",
+        "var": 337
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 182
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 183
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 0
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 313
+    },
+    {
+        "task": "use-thermometer",
+        "var": 99
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 98
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 289
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 166
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 55
+    },
+    {
+        "task": "use-thermometer",
+        "var": 270
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 15
+    },
+    {
+        "task": "use-thermometer",
+        "var": 190
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 342
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 59
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 74
+    },
+    {
+        "task": "find-living-thing",
+        "var": 206
+    },
+    {
+        "task": "find-living-thing",
+        "var": 125
+    },
+    {
+        "task": "find-animal",
+        "var": 120
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 76
+    },
+    {
+        "task": "use-thermometer",
+        "var": 305
+    },
+    {
+        "task": "find-animal",
+        "var": 84
+    },
+    {
+        "task": "find-animal",
+        "var": 224
+    },
+    {
+        "task": "use-thermometer",
+        "var": 359
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 65
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 4
+    },
+    {
+        "task": "find-animal",
+        "var": 71
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 40
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 58
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 46
+    },
+    {
+        "task": "find-animal",
+        "var": 144
+    },
+    {
+        "task": "use-thermometer",
+        "var": 205
+    },
+    {
+        "task": "use-thermometer",
+        "var": 90
+    },
+    {
+        "task": "use-thermometer",
+        "var": 89
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 146
+    },
+    {
+        "task": "use-thermometer",
+        "var": 216
+    },
+    {
+        "task": "find-animal",
+        "var": 1
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 113
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 64
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 92
+    },
+    {
+        "task": "find-living-thing",
+        "var": 114
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 74
+    },
+    {
+        "task": "find-animal",
+        "var": 156
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 135
+    },
+    {
+        "task": "find-living-thing",
+        "var": 90
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 206
+    },
+    {
+        "task": "find-living-thing",
+        "var": 153
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 330
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 23
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 2
+    },
+    {
+        "task": "use-thermometer",
+        "var": 231
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 302
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 16
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 8
+    },
+    {
+        "task": "use-thermometer",
+        "var": 311
+    },
+    {
+        "task": "use-thermometer",
+        "var": 142
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 30
+    },
+    {
+        "task": "use-thermometer",
+        "var": 317
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 28
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 171
+    },
+    {
+        "task": "find-living-thing",
+        "var": 131
+    },
+    {
+        "task": "power-component",
+        "var": 3
+    },
+    {
+        "task": "find-animal",
+        "var": 108
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 25
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 62
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 216
+    },
+    {
+        "task": "use-thermometer",
+        "var": 97
+    },
+    {
+        "task": "find-living-thing",
+        "var": 74
+    },
+    {
+        "task": "find-living-thing",
+        "var": 172
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 120
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 134
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 1
+    },
+    {
+        "task": "find-plant",
+        "var": 155
+    },
+    {
+        "task": "grow-plant",
+        "var": 43
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 164
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 411
+    },
+    {
+        "task": "find-living-thing",
+        "var": 106
+    },
+    {
+        "task": "use-thermometer",
+        "var": 163
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 194
+    },
+    {
+        "task": "find-animal",
+        "var": 114
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 2
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 279
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 426
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 281
+    },
+    {
+        "task": "grow-plant",
+        "var": 53
+    },
+    {
+        "task": "test-conductivity-of-unknown-substances",
+        "var": 55
+    },
+    {
+        "task": "find-plant",
+        "var": 173
+    },
+    {
+        "task": "find-plant",
+        "var": 11
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 180
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 42
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 163
+    },
+    {
+        "task": "find-living-thing",
+        "var": 120
+    },
+    {
+        "task": "use-thermometer",
+        "var": 234
+    },
+    {
+        "task": "use-thermometer",
+        "var": 2
+    },
+    {
+        "task": "use-thermometer",
+        "var": 212
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 6
+    },
+    {
+        "task": "find-animal",
+        "var": 93
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 125
+    },
+    {
+        "task": "use-thermometer",
+        "var": 63
+    },
+    {
+        "task": "find-animal",
+        "var": 127
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 11
+    },
+    {
+        "task": "use-thermometer",
+        "var": 208
+    },
+    {
+        "task": "find-animal",
+        "var": 67
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 13
+    },
+    {
+        "task": "use-thermometer",
+        "var": 24
+    },
+    {
+        "task": "find-plant",
+        "var": 67
+    },
+    {
+        "task": "boil",
+        "var": 9
+    },
+    {
+        "task": "find-plant",
+        "var": 63
+    },
+    {
+        "task": "find-plant",
+        "var": 200
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 69
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 76
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 208
+    },
+    {
+        "task": "find-animal",
+        "var": 28
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 82
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 39
+    },
+    {
+        "task": "find-plant",
+        "var": 142
+    },
+    {
+        "task": "find-plant",
+        "var": 133
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 18
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 326
+    },
+    {
+        "task": "find-animal",
+        "var": 141
+    },
+    {
+        "task": "freeze",
+        "var": 2
+    },
+    {
+        "task": "find-animal",
+        "var": 219
+    },
+    {
+        "task": "find-animal",
+        "var": 135
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 84
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 44
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 11
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 65
+    },
+    {
+        "task": "find-living-thing",
+        "var": 2
+    },
+    {
+        "task": "find-living-thing",
+        "var": 100
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 79
+    },
+    {
+        "task": "find-animal",
+        "var": 115
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 244
+    },
+    {
+        "task": "find-living-thing",
+        "var": 167
+    },
+    {
+        "task": "find-living-thing",
+        "var": 16
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 92
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 209
+    },
+    {
+        "task": "find-plant",
+        "var": 23
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 42
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 8
+    },
+    {
+        "task": "find-plant",
+        "var": 219
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 280
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 200
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 221
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 229
+    },
+    {
+        "task": "find-plant",
+        "var": 9
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 4
+    },
+    {
+        "task": "find-plant",
+        "var": 175
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 320
+    },
+    {
+        "task": "find-living-thing",
+        "var": 193
+    },
+    {
+        "task": "find-plant",
+        "var": 35
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 184
+    },
+    {
+        "task": "find-animal",
+        "var": 151
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 32
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 148
+    },
+    {
+        "task": "find-animal",
+        "var": 42
+    },
+    {
+        "task": "find-animal",
+        "var": 112
+    },
+    {
+        "task": "find-animal",
+        "var": 121
+    },
+    {
+        "task": "grow-fruit",
+        "var": 42
+    },
+    {
+        "task": "melt",
+        "var": 3
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 75
+    },
+    {
+        "task": "find-animal",
+        "var": 158
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 17
+    },
+    {
+        "task": "find-animal",
+        "var": 125
+    },
+    {
+        "task": "find-plant",
+        "var": 118
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 208
+    },
+    {
+        "task": "find-plant",
+        "var": 143
+    },
+    {
+        "task": "find-animal",
+        "var": 90
+    },
+    {
+        "task": "find-living-thing",
+        "var": 157
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 205
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 60
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 19
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 11
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 73
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 11
+    },
+    {
+        "task": "find-animal",
+        "var": 195
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 54
+    },
+    {
+        "task": "find-living-thing",
+        "var": 49
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 100
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 287
+    },
+    {
+        "task": "grow-plant",
+        "var": 6
+    },
+    {
+        "task": "find-animal",
+        "var": 136
+    },
+    {
+        "task": "grow-plant",
+        "var": 9
+    },
+    {
+        "task": "find-animal",
+        "var": 200
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 80
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 252
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 15
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 41
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 18
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 62
+    },
+    {
+        "task": "find-plant",
+        "var": 32
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 160
+    },
+    {
+        "task": "find-plant",
+        "var": 100
+    },
+    {
+        "task": "find-animal",
+        "var": 210
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 15
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 305
+    },
+    {
+        "task": "find-plant",
+        "var": 167
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 37
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 243
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 48
+    },
+    {
+        "task": "find-animal",
+        "var": 164
+    },
+    {
+        "task": "find-living-thing",
+        "var": 199
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 81
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 29
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 121
+    },
+    {
+        "task": "find-animal",
+        "var": 221
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 52
+    },
+    {
+        "task": "find-plant",
+        "var": 90
+    },
+    {
+        "task": "find-living-thing",
+        "var": 34
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 0
+    },
+    {
+        "task": "find-living-thing",
+        "var": 84
+    },
+    {
+        "task": "melt",
+        "var": 7
+    },
+    {
+        "task": "find-animal",
+        "var": 24
+    },
+    {
+        "task": "grow-fruit",
+        "var": 31
+    },
+    {
+        "task": "boil",
+        "var": 3
+    },
+    {
+        "task": "find-living-thing",
+        "var": 141
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 1
+    },
+    {
+        "task": "find-plant",
+        "var": 123
+    },
+    {
+        "task": "grow-plant",
+        "var": 0
+    },
+    {
+        "task": "grow-fruit",
+        "var": 27
+    },
+    {
+        "task": "find-living-thing",
+        "var": 70
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 85
+    },
+    {
+        "task": "find-living-thing",
+        "var": 160
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 132
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 22
+    },
+    {
+        "task": "grow-fruit",
+        "var": 36
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 2
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 222
+    },
+    {
+        "task": "find-living-thing",
+        "var": 222
+    },
+    {
+        "task": "find-animal",
+        "var": 188
+    },
+    {
+        "task": "grow-plant",
+        "var": 61
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 111
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 10
+    },
+    {
+        "task": "grow-plant",
+        "var": 3
+    },
+    {
+        "task": "find-plant",
+        "var": 128
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 9
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 56
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 14
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 48
+    },
+    {
+        "task": "find-plant",
+        "var": 217
+    },
+    {
+        "task": "grow-fruit",
+        "var": 46
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 84
+    },
+    {
+        "task": "find-plant",
+        "var": 106
+    },
+    {
+        "task": "find-living-thing",
+        "var": 180
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 64
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 0
+    },
+    {
+        "task": "find-animal",
+        "var": 23
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 54
+    },
+    {
+        "task": "find-living-thing",
+        "var": 77
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 150
+    },
+    {
+        "task": "find-animal",
+        "var": 132
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 1
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 13
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 238
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 0
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 113
+    },
+    {
+        "task": "find-plant",
+        "var": 182
+    },
+    {
+        "task": "freeze",
+        "var": 8
+    },
+    {
+        "task": "find-living-thing",
+        "var": 188
+    },
+    {
+        "task": "find-living-thing",
+        "var": 18
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 75
+    },
+    {
+        "task": "grow-plant",
+        "var": 21
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 51
+    },
+    {
+        "task": "find-living-thing",
+        "var": 32
+    },
+    {
+        "task": "find-plant",
+        "var": 176
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 13
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 189
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 37
+    },
+    {
+        "task": "freeze",
+        "var": 0
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 90
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 216
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 182
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 83
+    },
+    {
+        "task": "find-living-thing",
+        "var": 115
+    },
+    {
+        "task": "find-living-thing",
+        "var": 66
+    },
+    {
+        "task": "find-plant",
+        "var": 88
+    },
+    {
+        "task": "grow-plant",
+        "var": 55
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 224
+    },
+    {
+        "task": "find-plant",
+        "var": 117
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 195
+    },
+    {
+        "task": "find-plant",
+        "var": 76
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 1
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 77
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 174
+    },
+    {
+        "task": "find-living-thing",
+        "var": 214
+    },
+    {
+        "task": "find-living-thing",
+        "var": 216
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 71
+    },
+    {
+        "task": "find-plant",
+        "var": 17
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 91
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 44
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 204
+    },
+    {
+        "task": "boil",
+        "var": 2
+    },
+    {
+        "task": "find-plant",
+        "var": 208
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 11
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 219
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 93
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 80
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 62
+    },
+    {
+        "task": "find-living-thing",
+        "var": 81
+    },
+    {
+        "task": "find-living-thing",
+        "var": 122
+    },
+    {
+        "task": "measure-melting-point-known-substance",
+        "var": 316
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 7
+    },
+    {
+        "task": "find-living-thing",
+        "var": 159
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 14
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 139
+    },
+    {
+        "task": "find-living-thing",
+        "var": 102
+    },
+    {
+        "task": "grow-plant",
+        "var": 27
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 64
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 51
+    },
+    {
+        "task": "grow-plant",
+        "var": 36
+    },
+    {
+        "task": "find-living-thing",
+        "var": 27
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 3
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 37
+    },
+    {
+        "task": "find-living-thing",
+        "var": 187
+    },
+    {
+        "task": "find-animal",
+        "var": 153
+    },
+    {
+        "task": "grow-plant",
+        "var": 85
+    },
+    {
+        "task": "find-animal",
+        "var": 39
+    },
+    {
+        "task": "find-animal",
+        "var": 157
+    },
+    {
+        "task": "find-animal",
+        "var": 77
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 33
+    },
+    {
+        "task": "grow-plant",
+        "var": 45
+    },
+    {
+        "task": "find-animal",
+        "var": 89
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 32
+    },
+    {
+        "task": "find-living-thing",
+        "var": 204
+    },
+    {
+        "task": "find-animal",
+        "var": 161
+    },
+    {
+        "task": "find-plant",
+        "var": 116
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 23
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 3
+    },
+    {
+        "task": "find-animal",
+        "var": 165
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 46
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 58
+    },
+    {
+        "task": "grow-fruit",
+        "var": 29
+    },
+    {
+        "task": "find-animal",
+        "var": 170
+    },
+    {
+        "task": "find-plant",
+        "var": 81
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 167
+    },
+    {
+        "task": "find-animal",
+        "var": 182
+    },
+    {
+        "task": "grow-plant",
+        "var": 91
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 60
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 31
+    },
+    {
+        "task": "find-plant",
+        "var": 109
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 11
+    },
+    {
+        "task": "find-animal",
+        "var": 100
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 91
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 20
+    },
+    {
+        "task": "grow-fruit",
+        "var": 12
+    },
+    {
+        "task": "find-plant",
+        "var": 84
+    },
+    {
+        "task": "find-living-thing",
+        "var": 0
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 14
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 7
+    },
+    {
+        "task": "grow-plant",
+        "var": 42
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 64
+    },
+    {
+        "task": "find-plant",
+        "var": 132
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 13
+    },
+    {
+        "task": "grow-plant",
+        "var": 56
+    },
+    {
+        "task": "find-plant",
+        "var": 99
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 3
+    },
+    {
+        "task": "find-living-thing",
+        "var": 28
+    },
+    {
+        "task": "grow-plant",
+        "var": 22
+    },
+    {
+        "task": "find-living-thing",
+        "var": 201
+    },
+    {
+        "task": "grow-plant",
+        "var": 44
+    },
+    {
+        "task": "find-animal",
+        "var": 31
+    },
+    {
+        "task": "grow-fruit",
+        "var": 87
+    },
+    {
+        "task": "find-animal",
+        "var": 137
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 79
+    },
+    {
+        "task": "find-living-thing",
+        "var": 119
+    },
+    {
+        "task": "find-animal",
+        "var": 177
+    },
+    {
+        "task": "find-living-thing",
+        "var": 219
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 33
+    },
+    {
+        "task": "find-plant",
+        "var": 66
+    },
+    {
+        "task": "find-living-thing",
+        "var": 200
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 24
+    },
+    {
+        "task": "find-living-thing",
+        "var": 7
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 7
+    },
+    {
+        "task": "find-plant",
+        "var": 137
+    },
+    {
+        "task": "melt",
+        "var": 13
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 22
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 25
+    },
+    {
+        "task": "find-plant",
+        "var": 108
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 4
+    },
+    {
+        "task": "find-living-thing",
+        "var": 183
+    },
+    {
+        "task": "find-animal",
+        "var": 36
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 63
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 169
+    },
+    {
+        "task": "find-living-thing",
+        "var": 76
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 23
+    },
+    {
+        "task": "find-plant",
+        "var": 104
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 103
+    },
+    {
+        "task": "find-living-thing",
+        "var": 136
+    },
+    {
+        "task": "grow-plant",
+        "var": 31
+    },
+    {
+        "task": "find-animal",
+        "var": 75
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 10
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 25
+    },
+    {
+        "task": "find-plant",
+        "var": 171
+    },
+    {
+        "task": "find-plant",
+        "var": 34
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 4
+    },
+    {
+        "task": "find-animal",
+        "var": 95
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 21
+    },
+    {
+        "task": "grow-fruit",
+        "var": 47
+    },
+    {
+        "task": "find-plant",
+        "var": 144
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 30
+    },
+    {
+        "task": "find-living-thing",
+        "var": 217
+    },
+    {
+        "task": "find-living-thing",
+        "var": 209
+    },
+    {
+        "task": "grow-fruit",
+        "var": 9
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 148
+    },
+    {
+        "task": "identify-life-stages-2",
+        "var": 3
+    },
+    {
+        "task": "find-plant",
+        "var": 77
+    },
+    {
+        "task": "find-living-thing",
+        "var": 176
+    },
+    {
+        "task": "find-living-thing",
+        "var": 118
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 86
+    },
+    {
+        "task": "grow-fruit",
+        "var": 0
+    },
+    {
+        "task": "find-animal",
+        "var": 102
+    },
+    {
+        "task": "find-living-thing",
+        "var": 91
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 34
+    },
+    {
+        "task": "find-plant",
+        "var": 50
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 45
+    },
+    {
+        "task": "grow-plant",
+        "var": 84
+    },
+    {
+        "task": "find-living-thing",
+        "var": 185
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 37
+    },
+    {
+        "task": "find-animal",
+        "var": 3
+    },
+    {
+        "task": "find-living-thing",
+        "var": 110
+    },
+    {
+        "task": "boil",
+        "var": 6
+    },
+    {
+        "task": "find-animal",
+        "var": 49
+    },
+    {
+        "task": "find-plant",
+        "var": 25
+    },
+    {
+        "task": "find-plant",
+        "var": 124
+    },
+    {
+        "task": "find-animal",
+        "var": 167
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 73
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 160
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 36
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 9
+    },
+    {
+        "task": "find-plant",
+        "var": 160
+    },
+    {
+        "task": "find-living-thing",
+        "var": 186
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 215
+    },
+    {
+        "task": "grow-fruit",
+        "var": 61
+    },
+    {
+        "task": "find-animal",
+        "var": 40
+    },
+    {
+        "task": "find-animal",
+        "var": 181
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 43
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 3
+    },
+    {
+        "task": "find-living-thing",
+        "var": 57
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 66
+    },
+    {
+        "task": "find-animal",
+        "var": 60
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 41
+    },
+    {
+        "task": "find-living-thing",
+        "var": 177
+    },
+    {
+        "task": "find-plant",
+        "var": 169
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 77
+    },
+    {
+        "task": "grow-plant",
+        "var": 76
+    },
+    {
+        "task": "find-plant",
+        "var": 3
+    },
+    {
+        "task": "find-living-thing",
+        "var": 46
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 90
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 63
+    },
+    {
+        "task": "find-animal",
+        "var": 134
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 36
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 56
+    },
+    {
+        "task": "grow-plant",
+        "var": 35
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 12
+    },
+    {
+        "task": "grow-fruit",
+        "var": 60
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 17
+    },
+    {
+        "task": "find-plant",
+        "var": 206
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 74
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 131
+    },
+    {
+        "task": "grow-fruit",
+        "var": 28
+    },
+    {
+        "task": "find-animal",
+        "var": 82
+    },
+    {
+        "task": "find-living-thing",
+        "var": 144
+    },
+    {
+        "task": "boil",
+        "var": 5
+    },
+    {
+        "task": "find-animal",
+        "var": 8
+    },
+    {
+        "task": "find-animal",
+        "var": 104
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 202
+    },
+    {
+        "task": "find-living-thing",
+        "var": 42
+    },
+    {
+        "task": "grow-fruit",
+        "var": 39
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 76
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 55
+    },
+    {
+        "task": "find-animal",
+        "var": 166
+    },
+    {
+        "task": "find-animal",
+        "var": 175
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 40
+    },
+    {
+        "task": "find-plant",
+        "var": 218
+    },
+    {
+        "task": "find-plant",
+        "var": 41
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 14
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 179
+    },
+    {
+        "task": "find-living-thing",
+        "var": 158
+    },
+    {
+        "task": "find-plant",
+        "var": 149
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 5
+    },
+    {
+        "task": "grow-plant",
+        "var": 50
+    },
+    {
+        "task": "find-living-thing",
+        "var": 71
+    },
+    {
+        "task": "find-plant",
+        "var": 83
+    },
+    {
+        "task": "find-plant",
+        "var": 86
+    },
+    {
+        "task": "find-plant",
+        "var": 92
+    },
+    {
+        "task": "find-animal",
+        "var": 206
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 49
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 32
+    },
+    {
+        "task": "find-animal",
+        "var": 216
+    },
+    {
+        "task": "find-animal",
+        "var": 203
+    },
+    {
+        "task": "grow-plant",
+        "var": 16
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 65
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 7
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 181
+    },
+    {
+        "task": "find-plant",
+        "var": 18
+    },
+    {
+        "task": "find-living-thing",
+        "var": 19
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 206
+    },
+    {
+        "task": "find-plant",
+        "var": 165
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 55
+    },
+    {
+        "task": "find-plant",
+        "var": 39
+    },
+    {
+        "task": "grow-plant",
+        "var": 86
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 21
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 50
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 97
+    },
+    {
+        "task": "grow-fruit",
+        "var": 13
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 90
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 70
+    },
+    {
+        "task": "freeze",
+        "var": 7
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 77
+    },
+    {
+        "task": "find-animal",
+        "var": 2
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 48
+    },
+    {
+        "task": "find-living-thing",
+        "var": 142
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 93
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 27
+    },
+    {
+        "task": "find-animal",
+        "var": 193
+    },
+    {
+        "task": "find-living-thing",
+        "var": 47
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 72
+    },
+    {
+        "task": "find-plant",
+        "var": 114
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 24
+    },
+    {
+        "task": "find-living-thing",
+        "var": 69
+    },
+    {
+        "task": "find-plant",
+        "var": 203
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 53
+    },
+    {
+        "task": "find-animal",
+        "var": 21
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 39
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 56
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 72
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 60
+    },
+    {
+        "task": "find-animal",
+        "var": 222
+    },
+    {
+        "task": "grow-plant",
+        "var": 28
+    },
+    {
+        "task": "find-animal",
+        "var": 218
+    },
+    {
+        "task": "find-living-thing",
+        "var": 107
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 10
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 153
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 2
+    },
+    {
+        "task": "find-plant",
+        "var": 147
+    },
+    {
+        "task": "grow-fruit",
+        "var": 83
+    },
+    {
+        "task": "melt",
+        "var": 5
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 172
+    },
+    {
+        "task": "find-plant",
+        "var": 16
+    },
+    {
+        "task": "find-animal",
+        "var": 138
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 68
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 26
+    },
+    {
+        "task": "find-living-thing",
+        "var": 133
+    },
+    {
+        "task": "find-plant",
+        "var": 87
+    },
+    {
+        "task": "grow-fruit",
+        "var": 33
+    },
+    {
+        "task": "find-animal",
+        "var": 180
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 5
+    },
+    {
+        "task": "find-non-living-thing",
+        "var": 107
+    },
+    {
+        "task": "find-living-thing",
+        "var": 152
+    },
+    {
+        "task": "find-plant",
+        "var": 33
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 4
+    },
+    {
+        "task": "grow-fruit",
+        "var": 66
+    },
+    {
+        "task": "find-living-thing",
+        "var": 203
+    },
+    {
+        "task": "find-living-thing",
+        "var": 169
+    },
+    {
+        "task": "power-component",
+        "var": 9
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 28
+    },
+    {
+        "task": "find-plant",
+        "var": 214
+    },
+    {
+        "task": "grow-fruit",
+        "var": 10
+    },
+    {
+        "task": "find-living-thing",
+        "var": 150
+    },
+    {
+        "task": "grow-fruit",
+        "var": 17
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 44
+    },
+    {
+        "task": "grow-fruit",
+        "var": 73
+    },
+    {
+        "task": "find-living-thing",
+        "var": 6
+    },
+    {
+        "task": "find-animal",
+        "var": 47
+    },
+    {
+        "task": "find-animal",
+        "var": 96
+    },
+    {
+        "task": "find-animal",
+        "var": 140
+    },
+    {
+        "task": "find-living-thing",
+        "var": 63
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 67
+    },
+    {
+        "task": "find-animal",
+        "var": 73
+    },
+    {
+        "task": "find-living-thing",
+        "var": 154
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 54
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 76
+    },
+    {
+        "task": "grow-plant",
+        "var": 8
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 79
+    },
+    {
+        "task": "grow-fruit",
+        "var": 35
+    },
+    {
+        "task": "find-living-thing",
+        "var": 98
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 46
+    },
+    {
+        "task": "grow-fruit",
+        "var": 72
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 6
+    },
+    {
+        "task": "grow-fruit",
+        "var": 14
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 27
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 34
+    },
+    {
+        "task": "find-living-thing",
+        "var": 132
+    },
+    {
+        "task": "grow-fruit",
+        "var": 16
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 6
+    },
+    {
+        "task": "find-living-thing",
+        "var": 72
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 4
+    },
+    {
+        "task": "grow-fruit",
+        "var": 69
+    },
+    {
+        "task": "melt",
+        "var": 4
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 42
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 63
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 83
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 31
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 26
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 84
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 2
+    },
+    {
+        "task": "grow-plant",
+        "var": 17
+    },
+    {
+        "task": "grow-fruit",
+        "var": 5
+    },
+    {
+        "task": "grow-plant",
+        "var": 80
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 5
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 92
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 8
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 1
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 5
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 0
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 61
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 2
+    },
+    {
+        "task": "grow-plant",
+        "var": 89
+    },
+    {
+        "task": "grow-plant",
+        "var": 19
+    },
+    {
+        "task": "grow-fruit",
+        "var": 43
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 76
+    },
+    {
+        "task": "grow-fruit",
+        "var": 68
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 67
+    },
+    {
+        "task": "grow-fruit",
+        "var": 64
+    },
+    {
+        "task": "freeze",
+        "var": 6
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 48
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 16
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 10
+    },
+    {
+        "task": "grow-plant",
+        "var": 58
+    },
+    {
+        "task": "grow-plant",
+        "var": 70
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 17
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 0
+    },
+    {
+        "task": "grow-plant",
+        "var": 92
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 24
+    },
+    {
+        "task": "grow-plant",
+        "var": 74
+    },
+    {
+        "task": "grow-fruit",
+        "var": 57
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 7
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 35
+    },
+    {
+        "task": "grow-plant",
+        "var": 39
+    },
+    {
+        "task": "freeze",
+        "var": 11
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 43
+    },
+    {
+        "task": "grow-fruit",
+        "var": 24
+    },
+    {
+        "task": "grow-plant",
+        "var": 13
+    },
+    {
+        "task": "grow-plant",
+        "var": 67
+    },
+    {
+        "task": "grow-plant",
+        "var": 72
+    },
+    {
+        "task": "grow-fruit",
+        "var": 80
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 49
+    },
+    {
+        "task": "freeze",
+        "var": 10
+    },
+    {
+        "task": "grow-plant",
+        "var": 73
+    },
+    {
+        "task": "freeze",
+        "var": 1
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 1
+    },
+    {
+        "task": "grow-plant",
+        "var": 49
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 45
+    },
+    {
+        "task": "grow-plant",
+        "var": 52
+    },
+    {
+        "task": "grow-plant",
+        "var": 18
+    },
+    {
+        "task": "freeze",
+        "var": 12
+    },
+    {
+        "task": "grow-plant",
+        "var": 83
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 45
+    },
+    {
+        "task": "grow-fruit",
+        "var": 50
+    },
+    {
+        "task": "grow-fruit",
+        "var": 18
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 13
+    },
+    {
+        "task": "grow-plant",
+        "var": 90
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 11
+    },
+    {
+        "task": "grow-fruit",
+        "var": 19
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 12
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 5
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 11
+    },
+    {
+        "task": "boil",
+        "var": 0
+    },
+    {
+        "task": "boil",
+        "var": 1
+    },
+    {
+        "task": "melt",
+        "var": 1
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 46
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 10
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 5
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 15
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 77
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 7
+    },
+    {
+        "task": "grow-plant",
+        "var": 30
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 29
+    },
+    {
+        "task": "grow-plant",
+        "var": 2
+    },
+    {
+        "task": "grow-plant",
+        "var": 24
+    },
+    {
+        "task": "grow-plant",
+        "var": 20
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 3
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 23
+    },
+    {
+        "task": "grow-plant",
+        "var": 10
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 31
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 55
+    },
+    {
+        "task": "grow-plant",
+        "var": 59
+    },
+    {
+        "task": "power-component",
+        "var": 0
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 6
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 91
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 5
+    },
+    {
+        "task": "power-component",
+        "var": 6
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 35
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 50
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 75
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 5
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 37
+    },
+    {
+        "task": "identify-life-stages-1",
+        "var": 0
+    },
+    {
+        "task": "grow-plant",
+        "var": 47
+    },
+    {
+        "task": "grow-plant",
+        "var": 81
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 19
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 12
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 87
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 4
+    },
+    {
+        "task": "grow-plant",
+        "var": 37
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 12
+    },
+    {
+        "task": "grow-plant",
+        "var": 46
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 88
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 6
+    },
+    {
+        "task": "grow-fruit",
+        "var": 49
+    },
+    {
+        "task": "grow-fruit",
+        "var": 92
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 14
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 2
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 13
+    },
+    {
+        "task": "grow-fruit",
+        "var": 78
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 21
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 9
+    },
+    {
+        "task": "grow-fruit",
+        "var": 8
+    },
+    {
+        "task": "grow-plant",
+        "var": 57
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 53
+    },
+    {
+        "task": "grow-fruit",
+        "var": 48
+    },
+    {
+        "task": "grow-plant",
+        "var": 78
+    },
+    {
+        "task": "grow-plant",
+        "var": 66
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 71
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 67
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 11
+    },
+    {
+        "task": "grow-fruit",
+        "var": 90
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 9
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 0
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 72
+    },
+    {
+        "task": "power-component",
+        "var": 2
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 39
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 12
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 79
+    },
+    {
+        "task": "grow-plant",
+        "var": 15
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 12
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 13
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 25
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 83
+    },
+    {
+        "task": "grow-plant",
+        "var": 75
+    },
+    {
+        "task": "grow-plant",
+        "var": 62
+    },
+    {
+        "task": "grow-fruit",
+        "var": 76
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 33
+    },
+    {
+        "task": "power-component",
+        "var": 7
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 17
+    },
+    {
+        "task": "freeze",
+        "var": 3
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 47
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 38
+    },
+    {
+        "task": "grow-fruit",
+        "var": 34
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 17
+    },
+    {
+        "task": "chemistry-mix-paint-secondary-color",
+        "var": 7
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 82
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 56
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 3
+    },
+    {
+        "task": "grow-plant",
+        "var": 64
+    },
+    {
+        "task": "grow-fruit",
+        "var": 21
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 33
+    },
+    {
+        "task": "melt",
+        "var": 11
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 42
+    },
+    {
+        "task": "chemistry-mix-paint-tertiary-color",
+        "var": 16
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 16
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 18
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 29
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 53
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 20
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 60
+    },
+    {
+        "task": "grow-plant",
+        "var": 34
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 58
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 43
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 4
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 32
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 16
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 51
+    },
+    {
+        "task": "grow-fruit",
+        "var": 15
+    },
+    {
+        "task": "change-the-state-of-matter-of",
+        "var": 9
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 8
+    },
+    {
+        "task": "grow-fruit",
+        "var": 91
+    },
+    {
+        "task": "grow-plant",
+        "var": 12
+    },
+    {
+        "task": "boil",
+        "var": 10
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 86
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 78
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 58
+    },
+    {
+        "task": "boil",
+        "var": 12
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 75
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 74
+    },
+    {
+        "task": "grow-plant",
+        "var": 23
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 18
+    },
+    {
+        "task": "grow-fruit",
+        "var": 45
+    },
+    {
+        "task": "grow-plant",
+        "var": 32
+    },
+    {
+        "task": "melt",
+        "var": 9
+    },
+    {
+        "task": "power-component-renewable-vs-nonrenewable-energy",
+        "var": 2
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 26
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 14
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 53
+    },
+    {
+        "task": "melt",
+        "var": 8
+    },
+    {
+        "task": "power-component",
+        "var": 8
+    },
+    {
+        "task": "grow-plant",
+        "var": 4
+    },
+    {
+        "task": "freeze",
+        "var": 13
+    },
+    {
+        "task": "lifespan-shortest-lived",
+        "var": 59
+    },
+    {
+        "task": "lifespan-longest-lived-then-shortest-lived",
+        "var": 1
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 30
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 63
+    },
+    {
+        "task": "lifespan-longest-lived",
+        "var": 59
+    },
+    {
+        "task": "chemistry-mix",
+        "var": 6
+    },
+    {
+        "task": "melt",
+        "var": 6
+    }
+]

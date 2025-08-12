@@ -196,6 +196,13 @@ def compute_throughout_metrics(batch: DataProto, timing_raw: Dict[str, float], n
         'perf/throughput': total_num_tokens / (time * n_gpus),
     }
 
+# [lhy add]
+def safe_tensor(t: torch.Tensor, device=None, default=0.0):
+    if t.numel() == 0:
+        return torch.tensor([default], device=device or t.device)
+    return t
+# [lhy add]
+
 
 def compute_multi_turn_data_metrics(batch: DataProto, use_critic: bool = True) -> Dict[str, Any]:
     # TODO: add response length
@@ -219,6 +226,15 @@ def compute_multi_turn_data_metrics(batch: DataProto, use_critic: bool = True) -
         valid_values = torch.masked_select(values, response_mask)
         return_diff_var = torch.var(valid_returns - valid_values)
         return_var = torch.var(valid_returns)
+    
+    # [lhy add]
+    valid_adv = safe_tensor(valid_adv, advantages.device)
+    valid_returns = safe_tensor(valid_returns, returns.device)
+    sequence_score = safe_tensor(sequence_score, advantages.device)
+    sequence_reward = safe_tensor(sequence_reward, advantages.device)
+    if use_critic:
+        valid_values = safe_tensor(valid_values, advantages.device)
+    # [lhy add]
 
     metrics = {
         # score

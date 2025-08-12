@@ -77,6 +77,7 @@ class FastChatAgent(LMAgent):
                     json=gen_params,
                     stream=True,
                     timeout=120,
+                    proxies={"http": None, "https": None}
                 )
                 text = ""
                 for line in response.iter_lines(decode_unicode=False, delimiter=b"\0"):

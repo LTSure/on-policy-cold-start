@@ -65,7 +65,7 @@ def run_ppo(config) -> None:
                 'TOKENIZERS_PARALLELISM': 'true',
                 'NCCL_DEBUG': 'WARN',
                 'VLLM_LOGGING_LEVEL': 'WARN',
-                "RAY_DEBUG_POST_MORTEM": "1",
+                # "RAY_DEBUG_POST_MORTEM": "1",
             }
         })
 

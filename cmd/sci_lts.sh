@@ -2,18 +2,15 @@ export REPO_HOME=$(pwd)
 
 wandb login 2f39b29deef86a6909949ed808c7406a144a0d2b 
 
-final_folder="$REPO_HOME/verl/outputs_sci_normal"  
+final_folder="$REPO_HOME/verl/outputs_sci_lts"  
 
-bash_path=$REPO_HOME/examples/grpo_trainer/sci_normal.sh
+bash_path=$REPO_HOME/examples/grpo_trainer/sci_lts.sh
 
 
 project_name=$(basename "$bash_path" .sh)
-# timestamp=$(date +"%Y%m%d_%H%M")
-# date_stamp=$(date +"%Y%m%d")
-# res_folder="${final_folder}/${date_stamp}/${project_name}/${timestamp}/rank_${RANK}"
-
-res_folder="/cpfs04/user/liutianshuo/Emboqdied-Planner-R1/verl/outputs_sci_normal/20250812/sci_normal/20250812_1323/rank_"
-
+timestamp=$(date +"%Y%m%d_%H%M")
+date_stamp=$(date +"%Y%m%d")
+res_folder="${final_folder}/${date_stamp}/${project_name}/${timestamp}/rank_${RANK}"
 echo "saving in ${res_folder}"
 mkdir -p "$res_folder"
 
@@ -30,6 +27,9 @@ tensorboard_folder="${res_folder}/tensorboard"
 export TENSORBOARD_DIR="$tensorboard_folder"
 mkdir -p "$tensorboard_folder"
 echo "tb saving in ${TENSORBOARD_DIR}"
+
+export LOG_DIR="/cpfs04/user/liutianshuo/Embodied-Planner-R1/verl/outputs_sci_normal/20250811/sci_normal/20250811_1623/rank_"
+export CKPT_DIR="/cpfs04/user/liutianshuo/Embodied-Planner-R1/verl/outputs_sci_normal/20250811/sci_normal/20250811_1623/rank_/ckpt"
 
 # source /opt/conda/etc/profile.d/conda.sh
 PORT=8000

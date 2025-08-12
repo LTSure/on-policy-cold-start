@@ -75,7 +75,11 @@ class FSDPCheckpointManager(BaseCheckpointManager):
 
         model_state_dict = torch.load(local_model_path)
         optimizer_state_dict = torch.load(local_optim_path)
-        extra_state_dict = torch.load(local_extra_state_path)
+        # [lhy replace]
+        # extra_state_dict = torch.load(local_extra_state_path)
+        extra_state_dict = torch.load(local_extra_state_path, weights_only=False)
+
+        # [lhy replace]
 
         if del_local_after_load:
             try:
