@@ -110,7 +110,7 @@ ENV/
 
 # output logs
 tests/e2e/toy_examples/deepspeed/synchronous/output.txt
-
+.flash_attn-2.7.3+cu12torch2.6cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
 # vim
 *.swp
 

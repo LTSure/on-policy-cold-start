@@ -12,7 +12,7 @@ project_name=$(basename "$bash_path" .sh)
 # date_stamp=$(date +"%Y%m%d")
 # res_folder="${final_folder}/${date_stamp}/${project_name}/${timestamp}/rank_${RANK}"
 
-res_folder="/cpfs04/user/liutianshuo/Emboqdied-Planner-R1/verl/outputs_sci_normal/20250812/sci_normal/20250812_1323/rank_"
+res_folder="/cpfs04/user/liutianshuo/Embodied-Planner-R1/verl/outputs_sci_normal/20250812/sci_normal/20250812_1323/rank_"
 
 echo "saving in ${res_folder}"
 mkdir -p "$res_folder"
