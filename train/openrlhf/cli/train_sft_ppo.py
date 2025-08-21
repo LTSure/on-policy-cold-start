@@ -21,34 +21,25 @@ from torch.utils.data import Dataset
 from tqdm import tqdm
 #from .utils import exist_and_not_none
 
+def replace_sys_prompt(text,sys_prompt) -> str:
+    start_tag = "<|start_header_id|>system<|end_header_id|>"
+    end_tag = "<|eot_id|>"
+    start_index = text.find(start_tag)
+    if start_index == -1:
+        return text  # no system tag found
+    content_start = start_index + len(start_tag)
+    end_index = text.find(end_tag, content_start)
+    if end_index == -1:
+        return text  # no end of system content
 
+    # Construct the new text
+    new_text = (text[:content_start] +f"\n{sys_prompt}\n" + text[end_index:])
+    return new_text
 
-
-
-
-SYSTEM_PROMPT = "Let's think step by step and output the final answer within \\boxed{}."
-
-
-def preprocess_data_box(data, input_template=None, input_key="input", apply_chat_template=None, use_muti_turn=False) -> str:
+def preprocess_data_box(data, input_template=None, input_key="input", apply_chat_template=None, use_muti_turn=False, tokenizer=None, prompt_data="") -> str:
     if apply_chat_template:
         if not use_muti_turn:
-            # chat = data[input_key]
-
-            # if isinstance(chat, str):    
-            # chat = [{"role": "user", "content": chat}]
-            # prompt = apply_chat_template(chat, tokenize=False, add_generation_prompt=True)
-
-            # chat = [{"role": "user", "content": chat + SYSTEM_PROMPT}]
-            # chat = [{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": chat}]
-            # chat = [ {"role": "user", "content": chat}]
-            # prompt = apply_chat_template(chat, tokenize=False, add_generation_prompt=True)
-            # response = data["response"]
-
-            # truth_answer = data["ground_truth_answer"]
-            # target = data["target"]
-
-            # ---------------------------------------------------
-
+ 
             prompt = apply_chat_template(data[input_key][:-1], tokenize=False, add_generation_prompt=True)
             response = apply_chat_template(data[input_key], tokenize=False)[len(prompt) :]
 
@@ -69,7 +60,25 @@ def preprocess_data_box(data, input_template=None, input_key="input", apply_chat
 
             # ---------------------------------------------------
         else:
-            prompt = apply_chat_template(data[input_key], tokenize=False, add_generation_prompt=False)
+            if "alfworld" in prompt_data:
+                sys_prompt="Your are an expert in the ALFRED Embodied Environment."
+            elif "sciworld" in prompt_data:
+                sys_prompt="You are a helpful agent that interacts with the virtual science school environment to solve the given task. "
+            else:
+                print('model type unknow!')
+                assert 0
+
+            # [llama]
+            if tokenizer.eos_token=="<|eot_id|>":
+                prompt = apply_chat_template([{'role': 'system', 'content': sys_prompt}] + data[input_key], tokenize=False, add_generation_prompt=False)
+                prompt=replace_sys_prompt(prompt,sys_prompt)
+            # [qwen]
+            elif tokenizer.eos_token=="<|im_end|>":
+                prompt = apply_chat_template([{'role': 'system', 'content': sys_prompt}] + data[input_key], tokenize=False, add_generation_prompt=False)
+            else:
+                print('model type unknow!')
+                assert 0
+            
             return {"input": prompt, "target": "", "answer": "", "response": ""}
 
     else:
@@ -100,7 +109,8 @@ class PromptDatasetBox(Dataset):
         tokenizer,
         strategy,
         input_template=None,
-        use_muti_turn=False
+        use_muti_turn=False,
+        prompt_data="",
     ) -> None:
         super().__init__()
         self.strategy = strategy
@@ -117,7 +127,7 @@ class PromptDatasetBox(Dataset):
         self.prompts = []
         self.responses = []
         for data in tqdm(dataset, desc="Preprocessing data", disable=not self.strategy.is_rank_0()):
-            prompt = preprocess_data_box(data, input_template, input_key, apply_chat_template, use_muti_turn)
+            prompt = preprocess_data_box(data, input_template, input_key, apply_chat_template, use_muti_turn, tokenizer=self.tokenizer,prompt_data=prompt_data)
             self.prompts.append(prompt)
 
     def __len__(self):
@@ -267,7 +277,7 @@ def train(args):
         train_split=args.prompt_split,
     )
     prompts_data = prompts_data.select(range(min(args.max_samples, len(prompts_data))))
-    prompts_dataset = PromptDatasetBox(prompts_data, tokenizer, strategy, input_template=args.input_template, use_muti_turn=args.use_muti_turn)
+    prompts_dataset = PromptDatasetBox(prompts_data, tokenizer, strategy, input_template=args.input_template, use_muti_turn=args.use_muti_turn, prompt_data=args.prompt_data)
 
 
     if args.pretrain_data:

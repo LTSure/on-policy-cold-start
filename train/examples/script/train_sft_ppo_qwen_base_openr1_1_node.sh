@@ -31,9 +31,9 @@ RUN_NAME="${MODEL_NAME}_ppo_sft_alfworld_test——0620"
 deepspeed --include localhost:0,1,2,3,4,5,6,7 --module openrlhf.cli.train_sft_ppo \
     --pretrain $MODEL \
     --save_path $HOME/checkpoints/$RUN_NAME \
-    --micro_train_batch_size 16 \
+    --micro_train_batch_size 8 \
     --train_batch_size 512 \
-    --micro_rollout_batch_size 16 \
+    --micro_rollout_batch_size 8 \
     --rollout_batch_size 2048 \
     --eps_clip 0.5 \
     --temperature 0.6 \

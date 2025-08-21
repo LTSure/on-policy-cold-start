@@ -168,6 +168,7 @@ class PPOTrainer(ABC):
                 name=strategy.args.wandb_run_name,
                 config=strategy.args.__dict__,
                 reinit=True,
+                settings=wandb.Settings(init_timeout=300),
             )
 
             wandb.define_metric("train/global_step")
@@ -213,6 +214,7 @@ class PPOTrainer(ABC):
         start_episode = consumed_samples // args.rollout_batch_size // num_rollouts_per_episodes
         consumed_samples = consumed_samples % (num_rollouts_per_episodes * args.rollout_batch_size)
 
+        print("enter the rl training loop !!!!!!!!!!!!!!!!!!!!")
         for episode in range(start_episode, args.num_episodes):
             if isinstance(self.prompts_dataloader.sampler, DistributedSampler):
                 self.prompts_dataloader.sampler.set_epoch(

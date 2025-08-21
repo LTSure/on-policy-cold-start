@@ -2480,47 +2480,122 @@ class NaiveExperienceMakerSFT_MT(ABC):
 
                 action_mask = torch.zeros_like(sequences, dtype=torch.long)
 
-                for b in range(batch_size):
-                    prompt=prompts[b]
-                    sequence=sequences[b]
-
-                    splits = prompt.split('<|start_header_id|>user<|end_header_id|>')
-                    turns = []
-                    for i in range(len(splits)):
-                        turn = splits[i] if i==0 else "<|start_header_id|>user<|end_header_id|>" +  splits[i]
-                        turns.append(turn)
-                    
-
-                    now = 0
-                    for i, turn in enumerate(turns):
-                        if i ==  0:
-                            turn_len = self.tokenizer(turn, add_special_tokens=False).input_ids
-
-                            action_mask[b, now:now+len(turn_len)] = 0
-                            now += len(turn_len)
-                        else:
-                            parts = turn.split('<|start_header_id|>assistant<|end_header_id|>')
-                            if len(parts) != 2:
-                                continue
-                            else:
-                                parts[1] = "<|start_header_id|>assistant<|end_header_id|>" + parts[1]
-                            for j, part in enumerate(parts):
-                                if j == 0:
-                                    turn_len = self.tokenizer(part, add_special_tokens=False).input_ids
-                                    action_mask[b, now:now+len(turn_len)] = 0
-                                    now += len(turn_len)
-                                else:
-                                    turn_len = self.tokenizer(part, add_special_tokens=False).input_ids
-                                    action_mask[b, now:now+len(turn_len) - 1] = 1
-                                    now += len(turn_len)
-
                 
+                if self.tokenizer.eos_token=="<|eot_id|>":
+                    # [llama]
+                    for b in range(batch_size):
+                        prompt=prompts[b]
+                        sequence=sequences[b]
 
+                        splits = prompt.split('<|start_header_id|>user<|end_header_id|>')
+                        turns = []
+                        for i in range(len(splits)):
+                            turn = splits[i] if i==0 else "<|start_header_id|>user<|end_header_id|>" +  splits[i]
+                            turns.append(turn)
+                        
+
+                        now = 0
+                        for i, turn in enumerate(turns):
+                            if i ==  0:
+                                turn_len = self.tokenizer(turn, add_special_tokens=False).input_ids
+
+                                action_mask[b, now:now+len(turn_len)] = 0
+                                now += len(turn_len)
+                            else:
+                                parts = turn.split('<|start_header_id|>assistant<|end_header_id|>')
+                                if len(parts) != 2:
+                                    continue
+                                else:
+                                    parts[1] = "<|start_header_id|>assistant<|end_header_id|>" + parts[1]
+                                for j, part in enumerate(parts):
+                                    if j == 0:
+                                        turn_len = self.tokenizer(part, add_special_tokens=False).input_ids
+                                        action_mask[b, now:now+len(turn_len)] = 0
+                                        now += len(turn_len)
+                                    else:
+                                        turn_len = self.tokenizer(part, add_special_tokens=False).input_ids
+                                        action_mask[b, now:now+len(turn_len) - 1] = 1
+                                        now += len(turn_len)
+                    # [llama]
+                elif self.tokenizer.eos_token=="<|endoftext|>" or self.tokenizer.eos_token=="<|im_end|>":
+                    # [qwen]
+                    for b in range(batch_size):
+                        prompt=prompts[b]
+                        sequence=sequences[b]
+
+                        splits = prompt.split('<|im_start|>user')
+                        turns = []
+                        for i in range(len(splits)):
+                            turn = splits[i] if i==0 else "<|im_start|>user" +  splits[i]
+                            turns.append(turn)
+                        
+
+                        now = 0
+                        for i, turn in enumerate(turns):
+                            if i ==  0:
+                                turn_len = self.tokenizer(turn, add_special_tokens=False).input_ids
+
+                                action_mask[b, now:now+len(turn_len)] = 0
+                                now += len(turn_len)
+                            else:
+                                parts = turn.split('<|im_start|>assistant')
+                                if len(parts) != 2:
+                                    continue
+                                else:
+                                    parts[1] = "<|im_start|>assistant" + parts[1]
+                                for j, part in enumerate(parts):
+                                    if j == 0:
+                                        turn_len = self.tokenizer(part, add_special_tokens=False).input_ids
+                                        action_mask[b, now:now+len(turn_len)] = 0
+                                        now += len(turn_len)
+                                    else:
+                                        turn_len = self.tokenizer(part, add_special_tokens=False).input_ids
+                                        action_mask[b, now:now+len(turn_len) - 1] = 1
+                                        now += len(turn_len)
+                    # [qwen]
+                else:
+                    print('multi turn, model action mask error!')
+                    assert 0
+                
                 return sequences, attention_mask, action_mask
 
 
             sequences, attention_mask, action_mask = process_multi_turn_sequences(prompts)
             action_mask = action_mask[:, :-1].bool()
+
+
+            # [lhy debug]
+            # def debug_action_mask_single_prompt(prompt_text, sequence_tensor, action_mask_tensor, tokenizer):
+            #     input_ids = sequence_tensor.tolist()
+            #     action_mask = action_mask_tensor.tolist()
+            #     full_tokens = tokenizer.convert_ids_to_tokens(input_ids)
+            #     full_text = tokenizer.decode(input_ids, skip_special_tokens=False)
+            #     selected_ids = [tid for tid, m in zip(input_ids, action_mask) if m == 1]
+            #     selected_tokens = tokenizer.convert_ids_to_tokens(selected_ids)
+            #     decoded_text = tokenizer.decode(selected_ids, skip_special_tokens=False)
+            #     print("\n[Prompt 原文]:")
+            #     print(prompt_text)
+            #     print("\n[完整 Token IDs]:")
+            #     print(input_ids)
+            #     print("\n[完整 Token]:")
+            #     print(full_tokens)
+            #     print("\n[完整解码文本(sequence)]:")
+            #     print(full_text)
+            #     print("\n[Action Mask == 1 的 Token IDs]:")
+            #     print(selected_ids)
+            #     print("\n[对应 Token]:")
+            #     print(selected_tokens)
+            #     print("\n[解码后文本（被 mask 的部分）]:")
+            #     print(decoded_text)
+
+            # debug_action_mask_single_prompt(
+            #     prompt_text=prompts[0],
+            #     sequence_tensor=sequences[0],
+            #     action_mask_tensor=action_mask[0],
+            #     tokenizer=self.tokenizer  # 或你实际用的 tokenizer 对象
+            # )
+            # assert 0
+            # [lhy debug]
     
             samples = SamplesBOX(
                 sequences=sequences,

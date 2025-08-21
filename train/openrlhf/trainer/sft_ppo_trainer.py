@@ -477,14 +477,14 @@ class SFTPPOTrainer(ABC):
             return entropy_loss
 
 
-        entropy_loss = compute_entropy_from_output(output, action_mask)
-        metrics =  {"entropy_loss": entropy_loss.item()}
+        # entropy_loss = compute_entropy_from_output(output, action_mask)
+        # metrics =  {"entropy_loss": entropy_loss.item()}
 
         
-        if self._wandb is not None and self.strategy.is_rank_0() and self.count % 20 == 0:
-            # print(f'[log count]: {self.count}')
-            for k, v in metrics.items():
-                self._wandb.log({f"train/{k}": v}, step=self.count)
+        # if self._wandb is not None and self.strategy.is_rank_0() and self.count % 20 == 0:
+        #     # print(f'[log count]: {self.count}')
+        #     for k, v in metrics.items():
+        #         self._wandb.log({f"train/{k}": v}, step=self.count)
         # self.count += 1
 
 
@@ -700,7 +700,7 @@ class SFTPPOTrainer(ABC):
 
         # [replace]-------------------------[replace]
         # loss = actor_loss + aux_loss * self.args.aux_loss_coef
-        loss = actor_loss + aux_loss * self.args.aux_loss_coef -  self.entropy_coef * entropy_loss
+        loss = actor_loss + aux_loss * self.args.aux_loss_coef #-  self.entropy_coef * entropy_loss
         # [replace]-------------------------[replace]
 
 

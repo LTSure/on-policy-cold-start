@@ -221,28 +221,34 @@
 
 
 # MODEL_NAME="Llama-3.2-3B-Instruct_ppo_sft_alfworld_test——0613"
-MODEL_NAME="Llama-3.2-3B-Instruct_ppo_sft_alfworld_muti_turn——0623/_actor/3"
+# MODEL_NAME="Llama-3.2-3B-Instruct_ppo_sft_alfworld_muti_turn——0623/_actor/3"
 # MODEL_NAME="Llama-3.2-3B-Instruct_ppo_sft_alfworld_muti_turn——0625/_actor/5"
 
 # ID="lhy_test_math500_no_temp"
 # ID="lhy_test_vllm0.6.3_k_16"
 # ID="lhy_test3"
-ID="lhy_test_vllm0.6.3"
+# ID="lhy_test_vllm0.6.3"
+ID="livecodebench_eval"
 
 
-# MODEL_PATH="/cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints"
+MODEL_PATH="/cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints"
 # MODEL_PATH="/cpfs04/user/liutianshuo/rllm/scripts/deepscaler/train/checkpoints/deepscaler"
 
-MODEL_PATH="/oss/public/user/liuts/model"
+# MODEL_PATH="/oss/public/user/liuts/model"
 # MODEL_NAME="Qwen2.5_Math_1.5B"
 # MODEL_NAME="Qwen2.5_Math_7B"
-MODEL_NAME="Llama-3.2-3B-Instruct"
+# MODEL_NAME="Llama-3.2-3B-Instruct"
 
+
+# Set environment variables for local cache
+export HF_DATASETS_CACHE="/cpfs04/user/liutianshuo/math/simpleRL-reason/eval/data/livecodebench"
+export HF_HOME="/cpfs04/user/liutianshuo/math/simpleRL-reason/eval/data/livecodebench"
 
 DATA_DIR="./data"
+DATA_NAME="livecodebench"
 # DATA_NAME="aime24"
 # DATA_NAME="MATH-500"
-DATA_NAME="gsm8k"
+# DATA_NAME="gsm8k"
 # DATA_NAME="minerva_math"
 # DATA_NAME="olympiad_bench"
 SPLIT="test"
@@ -254,6 +260,9 @@ SPLIT="test"
 # DATA_DIR="/cpfs04/user/liutianshuo/math/deepscaler/deepscaler/data/train"
 # # DATA_NAME="deepscaler"
 
+MODEL_NAME="Llama-3.2-3B-Instruct_ppo_sft_alfworld_muti_turn——0623/_actor/3"
+# MODEL_NAME="Llama-3.2-3B-Instruct_sft_alfworld_test——0623/_actor/3"
+
 
 MODEL_NAME_OR_PATH=${MODEL_PATH}/${MODEL_NAME}
 EVAL_DIR="./eval_results"
@@ -263,7 +272,7 @@ END=-1
 
 
 
-TEMPERATURE=0
+TEMPERATURE=0.1
 
 
 # for TOKENS in $(seq 6000 500 12000); do

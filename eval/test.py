@@ -1152,46 +1152,6 @@ import json
 
 
 
-import json
-
-# jsonl_path = '/cpfs04/user/liutianshuo/math/simpleRL-reason/train/data/train_all_alfworld.jsonl'  # 你的 jsonl 文件路径
-# json_path = '/cpfs04/user/liutianshuo/math/simpleRL-reason/train/data/train_all_alfworld.json'    # 转成 json 文件后保存路径
-
-# data = []
-# with open(jsonl_path, 'r', encoding='utf-8') as f:
-#     for line in f:
-#         line = line.strip()
-#         if line:
-#             obj = json.loads(line)  # 解析每一行 JSON
-#             data.append(obj)
-
-# # data 是一个列表，里面每个元素对应 jsonl 文件的一行 JSON 对象
-# # 如果你想把它保存成 json 文件：
-# with open(json_path, 'w', encoding='utf-8') as f:
-#     json.dump(data, f, ensure_ascii=False, indent=2)
-
-# print(f'已将 {jsonl_path} 转换为 {json_path}')
-
-# input_path = '/cpfs04/user/liutianshuo/math/simpleRL-reason/train/data/alfworld-gpt4-45k_2.json'
-# with open(input_path, 'r', encoding='utf-8') as f:
-#         data = json.load(f)
-
-# prompt=[len(item["conversations"][0]["content"]) for item in data]
-# response=[len(item["conversations"][1]["content"]) for item in data]
-# s1="Your are an expert in the ALFRED Embodied Environment. You are also given the following text description of the current scene: "
-# s2='Your response should be a valid json file in the following format: \n\\{\n\"thoughts\": \"{first describe what do you see in the image using the text description, then carefully think about which action to complete the task. }\", \n\"action\": \"{an admissible action}\"\n\\}'
-# s2='Your response should be a valid json file in the following format: \n\\{\n\"thoughts\": \"{first describe what do you see in the image using the text description, then carefully think about which action to complete the task. }\", \n\"action\": \"{an admissible action}\"\n\\}'
-# c1,c2=0,0
-# i=0
-# for item in data:
-#     prompt=item["conversations"][0]["content"]
-#     response=item["conversations"][1]["content"]
-#     if s1 in prompt:
-#         c1+=1
-
-#     if s2 in prompt:
-#         c2+=1
-
 
 
 # print(c1,c2,len(data))
@@ -1497,19 +1457,244 @@ import torch
 #         json.dump(new_data, f, indent=2)
 
 
-import requests
 
-url = "http://localhost:21001/register_worker"
-data = {
-    "worker_name": "test_worker",
-    "check_heart_beat": False,
-    "worker_status": {"model_names": ["dummy"], "speed": 1.0, "queue_length": 0},
-}
 
-try:
-    response = requests.post(url, json=data, timeout=5)
-    print(response.status_code)
-    print(response.text)
-except Exception as e:
-    print("Error:", e)
+# import json
+# from transformers import AutoTokenizer
+# from tqdm import tqdm
+
+# # 加载 tokenizer（根据你的模型名称或路径修改）
+# tokenizer = AutoTokenizer.from_pretrained("/oss/public/user/liuts/model/Llama-3.2-3B-Instruct", use_fast=False)
+
+# # 是否有 apply_chat_template 方法
+# if not hasattr(tokenizer, "apply_chat_template"):
+#     raise NotImplementedError("This tokenizer does not support apply_chat_template.")
+
+# # 加载数据
+# with open("/cpfs04/user/liutianshuo/math/simpleRL-reason/train/data/alfworld_sft_mt_2.json", "r") as f:
+#     data = json.load(f)
+
+# token_counts = []
+# max_len = 0
+
+# # 遍历数据
+# for sample in tqdm(data):
+#     conversations = sample["conversations"]
+    
+#     # 应用 chat 模板，转为字符串输入
+#     prompt_str = tokenizer.apply_chat_template(conversations, tokenize=False, add_generation_prompt=False)
+    
+#     # tokenize 得到 token 数量
+#     token_ids = tokenizer(prompt_str, return_tensors="pt").input_ids
+#     num_tokens = token_ids.shape[1]
+    
+#     token_counts.append(num_tokens)
+#     max_len = max(max_len, num_tokens)
+
+# # 输出统计信息
+# print(f"Total samples: {len(token_counts)}")
+# print(f"Average token length: {sum(token_counts) / len(token_counts):.2f}")
+# print(f"Max token length: {max_len}")
+
+
+# import json
+
+# # 读取原始 JSON 文件
+# with open("/cpfs04/user/liutianshuo/math/simpleRL-reason/train/data/alfworld_sft_mt_2.json", "r", encoding="utf-8") as f:
+#     data = json.load(f)
+
+# # 创建新列表，只保留每项的前三条对话
+# new_data = []
+# for i in range(len(data)):
+#     item=data[i]
+#     conversations = item.get("conversations", [])[:3]
+#     new_item={
+#         "answer":"0",
+#         "data_source":"text",
+#         "prompt":conversations,
+#         "ability":"agent",
+#         "extra_info":{"index":i,"split":"train"}
+#     }
+
+
+#     new_data.append(new_item)
+
+# # 保存为新的 JSON 文件
+# with open("/cpfs04/user/liutianshuo/verl-agent/train_data/train.json", "w", encoding="utf-8") as f:
+#     json.dump(new_data, f, ensure_ascii=False, indent=2)
+
+
+# import json
+# import pandas as pd
+# import pyarrow as pa
+# import pyarrow.parquet as pq
+
+# # 路径设定
+# json_file = "/cpfs04/user/liutianshuo/verl-agent/train_data/train.json"
+# parquet_file = "/cpfs04/user/liutianshuo/verl-agent/train_data/train.parquet"
+
+# # 读取 JSON 文件
+# with open(json_file, 'r', encoding='utf-8') as f:
+#     data = json.load(f)
+
+# # 转为 DataFrame（注意 JSON 是一个 list）
+# df = pd.DataFrame(data)
+
+# # 写入 Parquet 文件
+# table = pa.Table.from_pandas(df)
+# pq.write_table(table, parquet_file)
+
+# print(f"✅ 成功将 {json_file} 转换为 {parquet_file}")
+
+
+
+# from transformers import AutoTokenizer
+
+
+# model_name = "/cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints/Qwen2.5_Math_1.5B_ppo_sft_aflworld_0717_3/_actor/5"
+# model_name = "/oss/public/user/liuts/model/Qwen2.5-1.5B-instruct"
+# model_name="/cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints/Qwen2.5_Math_1.5B_ppo_from_base_deepscaler_off12——0525/_actor/3"
+
+
+# tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+
+
+# conversations= [
+#     #   {"role": "system", "content": "klklkl"},
+#       {
+#         "role": "assistant",
+#         "content": "Thought: I'm at the fridge, which is closed. I'll use it to cool the mug without needing to open it, as the task doesn't specify opening the fridge\nAction: go to shelf 1"
+#       },
+#     ]
+
+# prompt = tokenizer.apply_chat_template(
+#     [{'role': 'system', 'content': "Your are an expert in the ALFRED Embodied Environment."}] +conversations,
+#     tokenize=False,
+#     add_generation_prompt=True,
+#     system_message=""
+# )
+
+# print(prompt)
+# print(tokenizer.eos_token)
+
+
+# MODEL_NAME="Qwen2.5_Math_1.5B"
+# MODEL="/oss/public/user/liuts/model/${MODEL_NAME}"
+
+# # 加载 tokenizer
+# tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+
+
+# conversations= [
+#       {
+#         "role": "assistant",
+#         "content": "Thought: I'm at the fridge, which is closed. I'll use it to cool the mug without needing to open it, as the task doesn't specify opening the fridge\nAction: go to shelf 1"
+#       },
+#     ]
+
+# prompt = tokenizer.apply_chat_template(
+#     [{'role': 'system', 'content': "Your are an expert in the ALFRED Embodied Environment."}] +conversations,
+#     tokenize=False,
+#     add_generation_prompt=True,
+#     system_message=""
+# )
+
+# print(prompt)
+# print(tokenizer.eos_token)
+
+
+
+
+# from transformers import AutoTokenizer
+# import json
+
+# # 加载 tokenizer（确认路径正确）
+# tokenizer = AutoTokenizer.from_pretrained("/oss/public/user/liuts/model/Llama-3.2-3B-Instruct", use_fast=False)
+
+# # 加载 JSON 数据
+# with open("/cpfs04/user/liutianshuo/math/simpleRL-reason/train/data/sciworld_train_alfworld_format.json", "r", encoding="utf-8") as f:
+#     data = json.load(f)
+# with open("/cpfs04/user/liutianshuo/math/simpleRL-reason/train/data/alfworld_sft_mt_2.json", "r", encoding="utf-8") as f:
+#     data = json.load(f)
+
+
+# l=[]
+# # 遍历数据并用 tokenizer 构造 prompt
+# for sample in data:
+#     conversations = [{'role': 'system', 'content': "You are a helpful agent that interacts with the virtual science school environment to solve the given task. "}]+sample["conversations"]  # list of dicts, with 'role' and 'content'
+    
+#     # 使用 apply_chat_template 方法构造 prompt
+#     prompt = tokenizer.apply_chat_template(
+#         conversations,
+#         tokenize=False,  # 如果想直接输入模型就设为 True
+#         add_generation_prompt=True  # 添加 assistant 留白，准备生成
+#     )
+
+#     def replace_sys_prompt(text: str) -> str:
+#       start_tag = "<|start_header_id|>system<|end_header_id|>"
+#       end_tag = "<|eot_id|>"
+
+#       start_index = text.find(start_tag)
+#       if start_index == -1:
+#           return text  # no system tag found
+
+#       content_start = start_index + len(start_tag)
+#       end_index = text.find(end_tag, content_start)
+#       if end_index == -1:
+#           return text  # no end of system content
+
+#       # Construct the new text
+#       new_text = (text[:content_start] +"\nYour are an expert in the ALFRED Embodied Environment.\n" + text[end_index:])
+#       return new_text
+    
+#     prompt=replace_sys_prompt(prompt)
+
+#     encoded = tokenizer(
+#       prompt,
+#       add_special_tokens=False,  # 不加额外 token（你手动控制的）
+#       return_tensors=None
+#     )
+#     token_count = len(encoded["input_ids"])
+#     l.append(token_count)
+
+# print(max(l))
+
+# print("sciworld" in "/cpfs04/user/liutianshuo/math/simpleRL-reason/train/data/sciworld_train_alfworld_format.json")
+
+from scienceworld import ScienceWorldEnv
+
+# 创建环境
+env = ScienceWorldEnv()
+
+task_name = "boil"
+max_variations = 30
+
+s="Your task is to boil ice to liquid. You should get ice in the kitchen and boil it in the foundry. The objects you can use are metal pot, thermometer, freezer, blast furnace, stove and glass jar. You should pick up a thermometer for temperature measurement. Take actions that will cause it to change its state of matter.  You need to increase the ice's temperature and monitor the temperature closely. Once the ice's state of matter changed, examine the changed state of ice. For compounds without a boiling point, combusting the substance is also acceptable."
+
+for variation_id in range(max_variations):
+    try:
+        env.load(taskName=task_name, variationIdx=29, generateGoldPath=True)
+        env.reset()
+
+   
+        # gold_actions = env.getGoalProgressStr()
+
+        # print(f"\n=== Variation {variation_id} ===")
+        # if env.get_task_description() ==s:
+        print("📝 Task:", env.get_task_description())
+        
+        # print("📜 Gold Action Sequence:")
+        # # for idx, act in enumerate(gold_actions):
+        #     # print(f"  {idx+1}. {act}")
+        # for idx, action in enumerate(env.get_gold_action_sequence()):
+        #     print(f"{idx + 1}. {action}")
+        # # print(gold_actions)
+    
+    except Exception as e:
+        print(f"❌ Error on variation {variation_id}: {e}")
+        break
+
+env.close()
+
+
 

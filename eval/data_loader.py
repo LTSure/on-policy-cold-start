@@ -67,6 +67,17 @@ def load_data(data_name, split, data_dir="./data"):
             dataset = dataset.filter(lambda x: x["type"] in stem_subjects)
         elif data_name == "carp_en":
             dataset = load_jsonl(f"{data_dir}/carp_en/test.jsonl")
+        elif data_name == "livecodebench":
+            # Load LiveCodeBench dataset from local cache with the same config as PCA shift analysis
+            # Set cache directory to use local data
+            cache_dir = "/cpfs04/user/liutianshuo/math/simpleRL-reason/eval/data/livecodebench"
+            dataset = load_dataset(
+                "livecodebench/code_generation_lite",
+                split=split,
+                version_tag="release_v5",
+                trust_remote_code=True,
+                cache_dir=cache_dir
+            )
         else:
             raise NotImplementedError(data_name)
 

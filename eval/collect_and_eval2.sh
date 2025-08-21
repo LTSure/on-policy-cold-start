@@ -2,11 +2,11 @@
 
 
 DATA_DIR="./data"
-# DATA_NAME="aime24"
+DATA_NAME="aime24"
 # DATA_NAME="MATH-500"
 # DATA_NAME="gsm8k"
 # DATA_NAME="minerva_math"
-DATA_NAME="olympiad_bench"
+# DATA_NAME="olympiad_bench"
 
 # DATA_DIR="/cpfs04/user/liutianshuo/math/deepscaler/deepscaler/data/train"
 # # DATA_NAME="deepscaler"
@@ -16,7 +16,8 @@ DATA_NAME="olympiad_bench"
 # MODEL_NAME="Qwen2.5_Math_7B"
 
 MODEL_PATH="/cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints"
-
+# MODEL_PATH="/cpfs04/user/liutianshuo/verl/checkpoints/verl_grpo_example_math"
+# /cpfs04/user/liutianshuo/verl/checkpoints/verl_grpo_example_math/Llama3B_instruct_ppo_from_checkpoint_with_system_0819/global_step_120/actor/huggingface
 # MODEL_NAME="Qwen2/.5_Math_7B_sft_from_base_deepscaler_max——0519"
 # MODEL_NAME="Qwen2.5_Math_1.5B_ppo_from_base_deepscaler_max——0517"
 # MODEL_NAME="Qwen2.5_Math_1.5B_sft_from_base_deepscaler_max——0517"
@@ -176,10 +177,13 @@ MODEL_PATH="/cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints"
 # MODEL_NAME="Llama-3.2-3B-Instruct_sft_from_base_deepscaler_0605/_actor/3"
 # MODEL_NAME="Llama-3.2-3B-Instruct_sft_from_base_deepscaler_0605/_actor/4"
 
+# MODEL_NAME="Qwen2.5_Math_7B_sft_from_checkpoint_with_system_0817/global_step_100/actor/huggingface"
 
-MODEL_NAME="Llama-3.2-3B-Instruct_sft_alfworld_test——0623/_actor/3"
-# MODEL_NAME="Llama-3.2-3B-Instruct_sft_alfworld_test——0625"
-
+MODEL_NAME="Qwen2.5-1.5B-instruct-math_math_test_0818_sft/_actor/2"
+# /cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints/Qwen2.5-1.5B-instruct-math_math_test_0818_sft/_actor/3
+# /cpfs04/user/liutianshuo/verl/checkpoints/verl_grpo_example_math/Qwen1.5b_instruct_ppo_from_checkpoint_with_system_0820/global_step_60/actor
+# Qwen2.5_Math_7B_sft_from_checkpoint_with_system_0816/global_step_60/actor/huggingface
+# /cpfs04/user/liutianshuo/math/simpleRL-reason/train/checkpoints/Qwen2.5-1.5B-instruct_math_test_0818_ppo/_actor/5
 # ID="lhy_test_math500_no_temp"
 ID="lhy_test_vllm0.6.3"
 

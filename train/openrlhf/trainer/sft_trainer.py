@@ -84,6 +84,7 @@ class SFTTrainer(ABC):
                 name=strategy.args.wandb_run_name,
                 config=strategy.args.__dict__,
                 reinit=True,
+                settings=wandb.Settings(init_timeout=300),
             )
 
             wandb.define_metric("train/global_step")

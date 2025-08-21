@@ -43,3 +43,6 @@ python3 openrlhf/cli/train_ppo_ray_box.py \
     --wandb_run_name $RUN_NAME \
     --ckpt_path $HDFS_HOME/checkpoints/$RUN_NAME  \
     --max_ckpt_num 20000
+
+
+    

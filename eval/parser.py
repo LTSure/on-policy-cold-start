@@ -583,7 +583,7 @@ def parse_ground_truth(example: Dict[str, Any], data_name):
         return example["gt_cot"], gt_ans
 
     # parse ground truth
-    if data_name in ["math", "minerva_math", "math500"]:  #关键代码
+    if data_name in ["math", "minerva_math", "math500","MATH-500"]:  #关键代码
         gt_cot = example["solution"]
         gt_ans = extract_answer(gt_cot, data_name)
     elif data_name == "gsm8k":
@@ -636,6 +636,10 @@ def parse_ground_truth(example: Dict[str, Any], data_name):
         "imo2024",
     ]:
         gt_cot, gt_ans = None, example["answer"]
+    elif data_name == "livecodebench":
+        # For LiveCodeBench, we don't have ground truth answers, so we'll use empty strings
+        # The evaluation will be based on code execution and test case passing
+        gt_cot, gt_ans = None, ""
     else:
         raise NotImplementedError(f"`{data_name}`")
     # post process
@@ -702,6 +706,11 @@ def parse_question(example, data_name):
             options.append(f"({key}) {options_dict[key]}")
         options = " ".join(options)
         question = f"{example['question'].strip()}\n选项: {options}"
+    elif data_name == "livecodebench":
+        # For LiveCodeBench, use the question content
+        question = example.get("question", example.get("question_content", ""))
+        if example.get("starter_code"):
+            question += f"\n\nStarter code:\n{example['starter_code']}"
     else:
         for key in ["question", "problem", "Question", "input"]:
             if key in example:
