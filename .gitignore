@@ -1,4 +1,5 @@
 .DS_Store
+<<<<<<< HEAD
 .idea
 __pycache__/
 *.pyc
@@ -28,3 +29,49 @@ eval/qwen3_30b_a3b_deepscaler
 eval/qwen3_30b_a3b_deepscaler--0515
 eval/qwen3_30b_a3b_deepscaler--0602
 train/examples/script/wandb
+=======
+.idea/
+.vscode/
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+.cache/
+.pycache_check/
+build/
+dist/
+site/
+
+wandb/
+runs/
+logs/
+outputs/
+checkpoints/
+tensorboard_log/
+
+*.log
+*.tmp
+*.bak
+*.swp
+
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+
+.env
+.env.*
+.netrc
+
+# Keep the public reproduction scripts clean; local experiment launchers often
+# contain cluster-specific paths.
+examples/script/*.sh
+!examples/script/train_pposft_alfworld.sh
+!examples/script/train_pposft_sciworld.sh
+>>>>>>> 507d5fe (Initial release for OPC-SFT)
