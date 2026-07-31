@@ -48,6 +48,48 @@ The repository includes packaged JSON examples under `data/`:
 
 For full-scale reproduction, prepare the corresponding ALFWorld and ScienceWorld SFT datasets and pass their paths through `PROMPT_DATA`.
 
+### ALFWorld version pinning (important for reproduction)
+
+`data/alfworld_sft.json` and all ALFWorld evaluation prompts/ICL examples in this
+project were written against the **ALFWorld 2.1.1 grammar**, i.e. actions such as:
+
+```text
+put {obj} in/on {recep}
+toggle {obj} {recep}
+```
+
+Newer ALFWorld releases (`alfworld` package `0.4.0`/`0.4.2`, using the
+`json_2.1.3_tw-pddl.zip` game-file overlay) patch this grammar to:
+
+```text
+move {obj} to {recep}
+use {obj}
+```
+
+**If you download/generate the ALFWorld game data (`.tw-pddl` files) with the
+newer grammar while training or evaluating with the SFT data/prompts in this
+repo, the environment will reject almost every `put`/`toggle` action as
+invalid ("Nothing happened"), and success rate will collapse (we observed
+~7.86% instead of the expected ~72.86% success rate on the Qwen2.5-1.5B-Instruct
+ALFWorld-Seen setting when this mismatch happened).**
+
+To reproduce the paper's numbers, make sure the ALFWorld data is downloaded
+with the grammar overlay matching `json_2.1.1_*`, e.g. via `alfworld-download`
+with the `alfworld` package pinned to `0.2.2`, or by explicitly using:
+
+```text
+https://github.com/alfworld/alfworld/releases/download/0.2.2/json_2.1.1_json.zip
+https://github.com/alfworld/alfworld/releases/download/0.2.2/json_2.1.1_pddl.zip
+https://github.com/alfworld/alfworld/releases/download/0.2.2/json_2.1.1_tw-pddl.zip
+```
+
+You can sanity-check a downloaded `.tw-pddl` file with:
+
+```bash
+python -c "import json; g=json.load(open('<path>/game.tw-pddl'))['grammar']; \
+print('OK (2.1.1 grammar)' if 'in/on' in g else 'WRONG VERSION: got move-based grammar')"
+```
+
 ## Training
 
 The main scripts are parameterized through environment variables and contain no machine-specific paths.
@@ -98,6 +140,11 @@ Before launching multi-GPU training, run:
 python -X pycache_prefix=.pycache_check -m compileall -q openrlhf
 find examples/script -name "*.sh" -print0 | xargs -0 -n1 bash -n
 ```
+
+If you are training or evaluating on ALFWorld, also verify the game-data
+grammar version as described in [ALFWorld version pinning](#alfworld-version-pinning-important-for-reproduction)
+above — this is the single most common cause of unreproducible/near-zero
+ALFWorld success rates.
 
 The full experiments require CUDA GPUs, model access on Hugging Face or local model paths, and enough disk space for checkpoints.
 
