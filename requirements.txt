@@ -17,5 +17,7 @@ torchmetrics
 tqdm
 transformers==4.46.1
 transformers_stream_generator
+# vllm must be 0.6.3 (install separately after torch/CUDA are set up, e.g. `pip install vllm==0.6.3`)
+vllm==0.6.3
 wandb
 wheel

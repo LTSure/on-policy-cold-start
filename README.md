@@ -37,6 +37,12 @@ For full GPU training with FlashAttention, install the optional CUDA-dependent p
 pip install -r requirements-flash-attn.txt
 ```
 
+**Note:** this repo requires `vllm==0.6.3`. Install it separately after PyTorch/CUDA are set up:
+
+```bash
+pip install vllm==0.6.3
+```
+
 Do not install `openrlhf` from PyPI on top of this checkout, because that may replace the local OPC-SFT implementation.
 
 ## Data
